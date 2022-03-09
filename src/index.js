@@ -3,10 +3,15 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import CounterApp from './CounterApp';
+import NavBar from './components/navBar';
+
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+   {/*  <App /> */}
+{/*     <CounterApp value= {0} /> */}
+    <NavBar ></NavBar>
   </React.StrictMode>,
   document.getElementById('root')
 );
