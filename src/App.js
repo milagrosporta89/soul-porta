@@ -1,23 +1,21 @@
 import logo from './logo.svg';
 import '../src/styles/App.scss';
+import NavBar from './components/navBar/navBar';
+import { Contador } from './Contador';
+import ItemListContainer from './components/itemListContainer';
+import RootContainer from './components/rootContainer';
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+
+      <RootContainer>
+        <NavBar />
+        <ItemListContainer></ItemListContainer>
+      {/*     <Contador value={0} date = {Date()}></Contador> */}
+      </RootContainer>
+    
     </div>
   );
 }

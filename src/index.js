@@ -9,9 +9,9 @@ import NavBar from './components/navBar/navBar';
 
 ReactDOM.render(
   <React.StrictMode>
-   {/*  <App /> */}
+    <App />
 {/*     <CounterApp value= {0} /> */}
-    <NavBar ></NavBar>
+{/*     <NavBar ></NavBar> */}
   </React.StrictMode>,
   document.getElementById('root')
 );
