@@ -1,0 +1,26 @@
+button {
+    border:none;
+    background-color: white;
+    font-size: 15px;
+    height: 2em;
+    width:2em;
+    border:none
+}
+button:hover{
+    background-color: grey;
+}
+.buttonWraper{
+
+    border:1px solid grey;
+    border-radius: 5px;
+    background-color: white;
+  
+
+}
+p{
+    line-height: 0;
+}
+.card {
+    background-color: rgb(235, 235, 235);
+    border-radius: 10px;
+}
