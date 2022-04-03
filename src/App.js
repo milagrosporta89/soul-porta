@@ -1,27 +1,37 @@
-import logo from './logo.svg';
-import '../src/styles/App.scss';
-import NavBar from './components/navBar/navBar';
-import { Contador } from './Contador';
-import ItemListContainer from './components/itemListContainer';
-import RootContainer from './components/rootContainer';
-import ItemCount from './components/itemCount';
-import ItemDetail from './components/itemDetail';
-import ItemDetailContainer from './components/itemDetailContainer.js';
-
+import "../src/styles/App.scss";
+import NavBar from "./components/navBar/navBar";
+import ItemListContainer from "./components/itemListContainer";
+import RootContainer from "./components/rootContainer";
+import ItemDetailContainer from "./components/itemDetailContainer.js";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import CartWidget from "./components/cartWidget";
+import Nosotras from "./components/Nosotras";
+import Politica from "./components/Politica";
+import Contacto from "./components/Contacto";
+import Categorias from "./components/Categorias";
 
 function App() {
   return (
-    <div>
+ 
 
-      <RootContainer>
+    <RootContainer>
+        <BrowserRouter>
         <NavBar />
-        {/* <ItemListContainer></ItemListContainer>
-        <ItemCount stock={5} initial={1}></ItemCount> */}
-      <ItemDetailContainer></ItemDetailContainer>
-      {/*     <Contador value={0} date = {Date()}></Contador> */}
+        <Categorias/>
+        <Routes>
+          <Route path="/" element={<ItemListContainer />} />
+          <Route path="/category/:categoryId" element={<ItemListContainer />} />
+          <Route path="/item/:itemId" element={<ItemDetailContainer />} />
+          <Route path="/nosotras" element={<Nosotras />} />
+          
+          <Route path="/politica" element={<Politica />} />
+          <Route path="/contacto" element={<Contacto />} />
+          <Route path="/cart" element={<Contacto />} />
+          <Route path="*" element={<Navigate to="/" />} />
+        </Routes>
+    </BrowserRouter>
       </RootContainer>
 
-    </div>
   );
 }
 

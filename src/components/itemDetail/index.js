@@ -17,10 +17,11 @@ const ItemDetail = ( {name, description_short, description_long, price, img, sto
            
                   >
               <Grid item alignContent={"center"} style={{marginRight:"5em", padding:"1em"}}>
-                  <img src= {require ("../../img/cuarzo.jpg")}></img>
+                  <img src= {img}></img>
               </Grid>
               <Grid container style={{width:"15em"}} >
                   <Grid  item >
+ 
                   <h2>{name}</h2>    
                   <h1>{price}</h1>
                   <h3>{description_short} </h3>

@@ -4,9 +4,10 @@ import "./styles.scss";
 import { Grid, CardMedia, Button } from "@mui/material";
 import logo from "../../img/logo-soul.JPG";
 import ButtonAdd from "../buttonAdd";
+import { Link } from "react-router-dom";
 
 
-const Item = ({ name, description, price, img }) => {
+const Item = ({ name, description_short, price, img, id}) => {
 /*   const products = {
     name: "CUARZO",
     description: "Amuleto Protector",
@@ -18,16 +19,13 @@ const Item = ({ name, description, price, img }) => {
     <>
       <Grid container item lg={3} className="card" spacing={0} sx={{  width:1/2}}>
         <CardContent sx={{ p:0, '&:last-child': { pb: 0 } }}>
-          <CardMedia
-            //image={require( `${products.img}`)}
-            style={{ height: "17em", padding:0, width: "17em", margin: 0 }}
-          />
-          <img src={img}></img> 
+     
+          <img src={img} ></img> 
           <div>{name}</div>
-          <div>{description}</div>
+          <div>{description_short}</div>
           <div>{price}</div>
 
-          <ButtonAdd name="AGREGAR AL CARRITO"></ButtonAdd>
+          <Link to={`item/${id}`} ><ButtonAdd name="AGREGAR AL CARRITO"></ButtonAdd></Link>
         </CardContent>
       </Grid>
     </>
