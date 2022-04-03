@@ -24,12 +24,7 @@ const ItemCount = ({ stock, initial, onAdd }) => {
   };
 
   return (
-    <Grid container item lg={2} className="card">
-      <CardContent>
-        <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
-          Collar Cuarzo
-        </Typography>
-      </CardContent>
+    <Grid container  row  className="counter">   
 
       <Grid
         container
@@ -38,6 +33,7 @@ const ItemCount = ({ stock, initial, onAdd }) => {
         direction={"row"}
         justifyContent={"space-between"}
         alignItems={"center"}
+        min-width={"2"}
         className="buttonWraper"
       >
         <button onClick={handleSubstract}>-</button>

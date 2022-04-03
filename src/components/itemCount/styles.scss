@@ -6,17 +6,26 @@
     width:2em;
     border:none
 } */
-button:hover{
-    background-color: grey;
+button:hover {
+  background-color: grey;
 }
-.buttonWraper{
-
-    border:1px solid grey;
+.counter {
+  .buttonWraper {
+    border: 1px solid grey;
     border-radius: 5px;
     background-color: white;
-  
-
-}
-p{
+    width: 10em;
+    box-shadow: 1px 1px grey;
+    margin-bottom: 1em
+  }
+  p {
     line-height: 0;
+  }
+  button {
+    //height: 3em;
+    width: 1em;
+    border: none;
+    background-color: rgb(223, 217, 217);
+    font-size: 30px;
+  }
 }
