@@ -9,6 +9,7 @@ import Nosotras from "./components/Nosotras";
 import Politica from "./components/Politica";
 import Contacto from "./components/Contacto";
 import Categorias from "./components/Categorias";
+import Cart from "./components/Cart";
 
 function App() {
   return (
@@ -26,7 +27,7 @@ function App() {
           
           <Route path="/politica" element={<Politica />} />
           <Route path="/contacto" element={<Contacto />} />
-          <Route path="/cart" element={<Contacto />} />
+          <Route path="/cart" element={<Cart />} />
           <Route path="*" element={<Navigate to="/" />} />
         </Routes>
     </BrowserRouter>

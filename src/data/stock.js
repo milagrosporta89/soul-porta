@@ -1,10 +1,12 @@
+
 export const stock= [
     {
       name: "CUARZO",
       description_short: "Amuleto Protector",
       description_long: "Armoniza la energia para todo fluya en tu corazon",
       price: "$2000",
-      img: "./img/cuarzo.jpg",
+      img:"./img/cuarzo.jpg",
+     
       category:"collares",
       id:1,
       stock: 5

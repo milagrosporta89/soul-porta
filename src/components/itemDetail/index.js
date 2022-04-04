@@ -1,12 +1,27 @@
 import { Container, Grid } from '@mui/material'
-import React from 'react'
+import React, { useState } from 'react'
 import ButtonAdd from '../buttonAdd';
 import "./styles.scss";
 import ItemCount from "../itemCount"
+import { Link } from 'react-router-dom';
 
 const ItemDetail = ( {name, description_short, description_long, price, img, stock}) => {
- 
 
+    const [counter, setCounter] = useState(1);
+
+    const addToCart = () =>{
+        const itemToAdd = {
+            name: name,
+            description_short: description_short,
+            price: price,
+            img : img,
+            counter: counter
+        }
+        console.log(itemToAdd)
+
+    }
+
+console.log (counter)
   return (
       <Container alignItems={"center"}>          
           <Grid   container
@@ -29,9 +44,14 @@ const ItemDetail = ( {name, description_short, description_long, price, img, sto
                   <p>stock disponible {stock}</p>
                   <Grid>
                   <p>Cantidad</p>
-                 <ItemCount></ItemCount>
-                  <ButtonAdd name= {"Agregar al carrito"}/>                  
+                 <ItemCount stock={stock}
+                             counter={counter}               
+                             setCounter={setCounter} 
+                             onAdd = {addToCart}
+                            />
+                <Link to="/cart"><button>Terminar mi compra </button></Link>
                   </Grid>
+                  
                     </Grid>
               </Grid>
       

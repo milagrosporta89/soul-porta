@@ -20,7 +20,7 @@ const Item = ({ name, description_short, price, img, id}) => {
       <Grid container item lg={3} className="card" spacing={0} sx={{  width:1/2}}>
         <CardContent sx={{ p:0, '&:last-child': { pb: 0 } }}>
      
-          <img src={img} ></img> 
+          <img src= {img}></img> 
           <div>{name}</div>
           <div>{description_short}</div>
           <div>{price}</div>

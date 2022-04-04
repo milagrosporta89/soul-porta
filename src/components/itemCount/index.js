@@ -8,9 +8,10 @@ import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
 
 import Typography from "@mui/material/Typography";
+import ButtonAdd from "../buttonAdd";
 
-const ItemCount = ({ stock, initial, onAdd }) => {
-  const [counter, setCounter] = useState(initial);
+const ItemCount = ({ stock, initial=1, onAdd, counter, setCounter}) => {
+ 
 
   const handleAdd = () => {
     if (counter < stock) {
@@ -24,22 +25,30 @@ const ItemCount = ({ stock, initial, onAdd }) => {
   };
 
   return (
-    <Grid container  row  className="counter">   
+    <Grid>
 
-      <Grid
-        container
-        item
-        lg={12}
-        direction={"row"}
-        justifyContent={"space-between"}
-        alignItems={"center"}
-        min-width={"2"}
-        className="buttonWraper"
-      >
-        <button onClick={handleSubstract}>-</button>
-        <p>{counter}</p>
-        <button onClick={handleAdd}>+</button>
-      </Grid>
+      <Grid container  row  className="counter">   
+    
+        <Grid
+          container
+          item
+          lg={12}
+          direction={"row"}
+          justifyContent={"space-between"}
+          alignItems={"center"}
+          min-width={"2"}
+          className="buttonWraper"
+        >
+          <button onClick={handleSubstract}>-</button>
+          <p>{counter}</p>
+          <button onClick={handleAdd}>+</button>
+        </Grid>
+
+
+    </Grid>
+{/* 
+      <ButtonAdd name= {"Agregar al carrito"} onClick={onAdd} />            */}
+      <button onClick={onAdd}>Agregar al carrito</button>
     </Grid>
   );
 };
