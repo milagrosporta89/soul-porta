@@ -7,16 +7,20 @@ import Categorias from "../Categorias";
 
 const CategoryContainer = () => {
   return (
-    <Grid container item>
+    <Grid     container item sx={{  }}>
+
+      <CategoryCard name={"PULSERAS"} img={"./img/agata coralina.jpg"}></CategoryCard>
+      <CategoryCard name={"COLLARES"} img={"./img/chapa de agatha.jpg"}></CategoryCard>
+      <CategoryCard name={"PIEDRAS"} img={"./img/cuarzo azul.jpg"}></CategoryCard>
+      
+ 
+
+    </Grid>
       
   
-      
-      <CategoryCard name={"PULSERAS"}></CategoryCard>
-      <CategoryCard name={"COLLARES"}></CategoryCard>
-      <CategoryCard name={"PIEDRAS"}></CategoryCard>
-      
+
    
-      </Grid>
+
   
   );
 };

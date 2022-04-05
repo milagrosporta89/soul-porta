@@ -25,7 +25,7 @@ const Item = ({ name, description_short, price, img, id}) => {
           <div>{description_short}</div>
           <div>{price}</div>
 
-          <Link to={`item/${id}`} ><ButtonAdd name="AGREGAR AL CARRITO"></ButtonAdd></Link>
+          <Link to={`/item/${id}`} ><ButtonAdd name="AGREGAR AL CARRITO"></ButtonAdd></Link>
 
         </Grid>
      {/*    <CardContent sx={{ p:0, '&:last-child': { pb: 0 } }}>
