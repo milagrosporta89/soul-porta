@@ -5,8 +5,7 @@ import ButtonAdd from "../buttonAdd";
 import "./styles.scss";
 
 const CategoryCard = ({ name, img }) => {
-  const link = `category/${name.toLowerCase()}`;
-  console.log(`category/${name.toLowerCase()}`);
+
   return (
     <Grid container item lg={4} md={4} sm={6} xs={12} className="category" spacing={0} sx={{ }}>
       <Link to={`/category/${name.toLowerCase()}`}>
