@@ -8,11 +8,12 @@ import CartWidget from "./components/cartWidget";
 import Nosotras from "./components/Nosotras";
 import Politica from "./components/Politica";
 import Contacto from "./components/Contacto";
-import Categorias from "./components/Categorias";
+
 import Cart from "./components/Cart";
 import { CartContext } from "./context/CartContext";
 import { useState } from "react";
-import CategoryContainer from "./components/CategoryContainer";
+import CategoryContainer from "./components/CategoryList";
+import ProductsContainer from "./components/ProductsContainer";
 
 function App() {
   const [cart, setCart] =useState([])
@@ -37,7 +38,7 @@ function App() {
           <Route path="/category/:categoryId" element={<ItemListContainer />} />
           <Route path="/item/:itemId" element={<ItemDetailContainer />} />
           <Route path="/nosotras" element={<Nosotras />} />
-          <Route path="/productos" element={<CategoryContainer />} />
+          <Route path="/productos" element={<ProductsContainer />} />
           
           <Route path="/politica" element={<Politica />} />
           <Route path="/contacto" element={<Contacto />} />

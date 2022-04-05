@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import ItemDetail from '../itemDetail';
 import { stock } from '../../data/stock';
 import { useParams } from 'react-router-dom';
+import CategoryContainer from '../CategoryList';
 
 const ItemDetailContainer = () => {
 
@@ -29,8 +30,13 @@ const ItemDetailContainer = () => {
    
 
   return (
-
+    <>
+    
+    
+    
     <ItemDetail {...detail}/>
+    </>
+
   )
 }
 

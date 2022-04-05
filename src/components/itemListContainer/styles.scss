@@ -1,0 +1,20 @@
+.middle-block{
+    height: 25vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    h2{
+        font-size: 1.8em;
+        font-weight: lighter;
+        
+        margin: 0;
+        color: rgb(65, 65, 65)
+    }
+    h4{
+        font-size: 1.5em;
+        font-weight: lighter;
+        color: rgb(65, 65, 65);
+        margin-top: 2px
+    }
+}
