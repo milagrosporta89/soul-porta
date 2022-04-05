@@ -10,7 +10,7 @@ const NavBarList = () => {
     <div className="navItems">
     
      <Link to="/"> HOME</Link>
-        <Link to ="/categorias"> PRODUCTOS</Link>
+        <Link to ="/productos"> PRODUCTOS</Link>
         <Link to ="/nosotras"> NOSOTRAS</Link>
         <Link to ="/politica"> POLITICA DE DEVOLUCION</Link>
         <Link to="contacto"> CONTACTO</Link>

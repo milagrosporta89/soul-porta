@@ -17,16 +17,20 @@ const Item = ({ name, description_short, price, img, id}) => {
  */
   return (
     <>
-      <Grid container item lg={3} className="card" spacing={0} sx={{  width:1/2}}>
-        <CardContent sx={{ p:0, '&:last-child': { pb: 0 } }}>
-     
+      <Grid container item lg={3} md={4} sm={6} xs={12} className="card" spacing={0} sx={{ }}>
+        <Grid item width={"content"} style={{marginTop:"2em"}}>
+
           <img src= {img}></img> 
           <div>{name}</div>
           <div>{description_short}</div>
           <div>{price}</div>
 
           <Link to={`item/${id}`} ><ButtonAdd name="AGREGAR AL CARRITO"></ButtonAdd></Link>
-        </CardContent>
+
+        </Grid>
+     {/*    <CardContent sx={{ p:0, '&:last-child': { pb: 0 } }}>
+     
+        </CardContent> */}
       </Grid>
     </>
   );

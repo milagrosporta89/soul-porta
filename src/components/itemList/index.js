@@ -16,7 +16,7 @@ const ItemList = () => {
   const prom = new Promise ((req,res)=>{
     setTimeout(()=>
       req(stock),
-    2000)
+    700)
   })
 
   useEffect(() => {
@@ -40,7 +40,7 @@ console.log(list)
   
 
   return (
-    <Grid container item sx={{ gap: 1 }}>
+    <Grid container item sx={{  }}>
       {list.map((item) => {
         return (
           <Item

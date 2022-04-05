@@ -7,13 +7,13 @@ const ItemDetailContainer = () => {
 
     const [detail, setDetail] = useState(null)
     const {itemId} = useParams()
-    console.log(itemId)
+ 
 
   
   const prom = new Promise ((req,res)=>{
     setTimeout(()=>
       req(stock),
-    2000)
+    700)
   })
     
   useEffect(() => {
@@ -26,7 +26,7 @@ const ItemDetailContainer = () => {
     })
          .catch(err=>console.log("error"))
    }, [itemId])
-    console.log(detail)
+   
 
   return (
 

@@ -1,45 +1,90 @@
 
 export const stock= [
     {
-      name: "CUARZO",
-      description_short: "Amuleto Protector",
-      description_long: "Armoniza la energia para todo fluya en tu corazon",
-      price: "$2000",
-      img:"./img/cuarzo.jpg",
+      name: "OJO DE TIGRE",
+      description_short: "Amuleto de los Objetivos",
+      description_long: "Nos ayuda a concretar nuestros objetivos y mantener la perspectiva en situaciones complejas. Trabaja también sobre el autoestima y la creatividad",
+      price: "$1500",
+      img:"./img/ojo de tigre.jpg",
      
       category:"collares",
       id:1,
       stock: 5
     },
     {
-      name: "TURMALINA",
-      description_short: "Amuleto guia",
-      description_long: "Armoniza la energia para todo fluya en tu corazon",
-      price: "$2030",
-      img: "./img/cuarzo.jpg",
+      name: "CHAPAS DE AGATHA",
+      description_short: "Amuleto protector",
+      description_long: "Chapas de ágata con cordón gamuzado o cadena. El agata es una piedra protectora que aporta calma y tranquilidad",
+      price: "$1800",
+      img: "./img/chapa de agatha.jpg",
       category:"pulseras",
       id:2,
       stock: 7
     },
     {
-      name: "LAPIAZULI",
-      description_short: "Amuleto Sueños",
-      description_long: "Armoniza la energia para todo fluya en tu cuerpo",
+      name: "CUARZO AZUL",
+      description_short: "Amuleto de equilibrio",
+      description_long: "Especial para equilibrar emociones. La recomendamos para mejorar la comunicación con otros y fortalecer relaciones interpersonales. Sus propiedades ayudan a mantener la paz y calmar miedos",
       price: "$2500",
-      img: "./img/cuarzo.jpg",
+      img: "./img/cuarzo azul.jpg",
       category:"piedras",
       id:3,
       stock: 11
     },
     {
-      name: "PIEDRA POMEZ",
-      description_short: "Amuleto de la paz",
-      description_long: "Buena energia para todas tus mañanas",
+      name: "AGATA CORALINA",
+      description_short: "Amuleto de la Creatividad",
+      description_long: "Una piedra llena de energías positivas y revitalizantes. Estimula la creatividad y ayuda a concretar ideas. Esta piedra eleva el autoestima y restaura la vitalidad.",
       price: "$2000",
-      img: "./img/cuarzo.jpg",
+      img: "./img/agata coralina.jpg",
       category:"collares",
       id:4,
       stock: 10
     },
+    {
+      name: "CUARZO CRISTAL",
+      description_short: "Amuleto Sanador",
+      description_long: "Absorve, regula y amplifica las energías. Es una piedra sanadora que también ayuda a la concentración y a trabajar la paciencia.",
+      price: "$2000",
+      img: "./img/cuarzo cristal.jpg",
+      category:"collares",
+      id:5,
+      stock: 10
+    },
+    {
+      name: "ONIX",
+      description_short: "Amuleto de las decisiones",
+      description_long: "Nos da fuerza, autoconfianza y perseverancia. Gran protectora en momentos difíciles. Nos ayuda a tomar decisiones sabias",
+      price: "$2000",
+      img: "./img/onix.jpg",
+      category:"collares",
+      id:6,
+      stock: 10
+    },
+    {
+      name: "CUARZO ROSA",
+      description_short: "Amuleto de los vinculos",
+      description_long: "Es la piedra del amor incondicional. Aporta profunda sanación y nos da confianza. La recomendamos para aumentar la conexión y fortalecer vínculos.",
+      price: "$2000",
+      img: "./img/cuarzo rosa.jpg",
+      category:"collares",
+      id:7,
+      stock: 10
+    },
+    {
+      name: "AMATISTA",
+      description_short: "Amuleto Protector",
+      description_long: "Transmuta las energías negativas y las transforma en energías amorosas.  Gran protectora y calmante. Trabaja sobre el dolor interior, rupturas y en general el equilibrio energético emocional",
+      price: "$2000",
+      img: "./img/amatista.jpg",
+      category:"collares",
+      id:8,
+      stock: 10
+    },
+
+
+
+
+
   ];
 
