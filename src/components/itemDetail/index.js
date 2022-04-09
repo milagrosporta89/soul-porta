@@ -68,6 +68,7 @@ const ItemDetail = ({
                   counter={counter}
                   setCounter={setCounter}
                   onAdd={addToCart}
+                  display={true}
                 />
               ) : (
                 <Link to="/cart">

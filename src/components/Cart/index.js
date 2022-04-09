@@ -24,20 +24,16 @@ const Cart = () => {
               xs={12}
             >
               <Grid item xs={4}>
-              <h4>Producto</h4>
+                <h4>Producto</h4>
               </Grid>
-              <Grid  item xs= {5} >
-              <h4>Cantidad</h4>
+              <Grid item xs={5}>
+                <h4>Cantidad</h4>
               </Grid>
               <Grid item xs={1}>
-              <h4>Precio</h4>
-
+                <h4>Precio</h4>
               </Grid>
-
-
-
             </Grid>
-              <Divider/>
+            <Divider />
 
             <Grid container item xs={12} direction={"column"} marginTop="2em">
               <Grid
@@ -48,13 +44,17 @@ const Cart = () => {
               >
                 <CartItem></CartItem>
                 <CartItem></CartItem>
+                <CartItem></CartItem>
+                <CartItem></CartItem>
+                <CartItem></CartItem>
+                <CartItem></CartItem>
+                <CartItem></CartItem>
               </Grid>
             </Grid>
           </Grid>
-   
         </Grid>
         <Grid container item xs={4} direction={"row"}>
-        <CartResume></CartResume>
+          <CartResume></CartResume>
         </Grid>
       </Grid>
     </Container>

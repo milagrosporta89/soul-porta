@@ -10,9 +10,14 @@ import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
 import ButtonAdd from "../buttonAdd";
 
-const ItemCount = ({ stock, initial=1, onAdd, counter, setCounter}) => {
- 
-
+const ItemCount = ({
+  stock,
+  initial = 1,
+  onAdd,
+  counter,
+  setCounter,
+  display,
+}) => {
   const handleAdd = () => {
     if (counter < stock) {
       setCounter((prev) => prev + 1);
@@ -25,14 +30,12 @@ const ItemCount = ({ stock, initial=1, onAdd, counter, setCounter}) => {
   };
 
   return (
-    <Grid className="itemCount">
-
-      <Grid container  row  className="counter">   
-    
+    <Grid className="item">
+      <Grid container row className="counter">
         <Grid
           container
           item
-          lg={6}
+          //lg={6}
           direction={"row"}
           justifyContent={"space-between"}
           alignItems={"center"}
@@ -43,12 +46,12 @@ const ItemCount = ({ stock, initial=1, onAdd, counter, setCounter}) => {
           <p>{counter}</p>
           <button onClick={handleAdd}>+</button>
         </Grid>
-
-
-    </Grid>
-{/* 
-      <ButtonAdd name= {"Agregar al carrito"} onClick={onAdd} />            */}
-      <Button variant="contained" className="btn-add" onClick={onAdd}>Agregar al carrito</Button>
+      </Grid>{" "}
+      {display && (
+        <Button  variant="contained" className="btn-add" onClick={onAdd}>
+          Agregar al carrito
+        </Button>
+      )}
     </Grid>
   );
 };

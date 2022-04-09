@@ -1,9 +1,10 @@
-import { Grid } from "@mui/material";
+import { Divider, Grid, IconButton } from "@mui/material";
 import React, { useContext, useEffect, useState } from "react";
 import { CartContext } from "../../context/CartContext";
 import ItemCount from "../itemCount";
 import "./styles.scss";
 import DeleteIcon from "@mui/icons-material/Delete";
+import { width } from "@mui/system";
 
 const CartItem = () => {
   const { cart, cartQuantity } = useContext(CartContext);
@@ -25,21 +26,48 @@ const CartItem = () => {
     setProvCart(cart);
   }, []);
   return (
-    <Grid container className="cartItem" display="row" xs={12}>
+    <>
+    <Grid
+      container
+      className="cartItem"
+      display="row"
+      xs={12}
+      justifyContent="space-between"
+      alignItems={"center"}
+    >
       <Grid item xs={2}>
         <img src={info.img}></img>
       </Grid>
       <Grid item xs={2}>
         <p>{info.name}</p>
       </Grid>
-      <Grid item xs={3}>       
+      <Grid
+        container
+        item
+        xs={4}
+        direction="row"
+        justifyContent={"center"}
+        width={"100%"}
+        alignSelf={"center"}
+      >
         <ItemCount></ItemCount>
       </Grid>
-      <Grid container item xs={5} direction={"row"} justifyContent="end" alignSelf={"center"}>
-      <p>{info.price}</p>
-      <DeleteIcon></DeleteIcon>
+      <Grid
+        container
+        item
+        xs={4}
+        direction={"row"}
+        justifyContent="flex-end"
+        alignSelf={"center"}
+      >
+        <p>{info.price}</p>
+        <IconButton>
+          <DeleteIcon></DeleteIcon>
+        </IconButton>
       </Grid>
     </Grid>
+      <Divider/>
+      </>
   );
 };
 

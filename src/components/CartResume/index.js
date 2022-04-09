@@ -4,17 +4,17 @@ import "./styles.scss";
 
 const CartResume = () => {
   return (
-    <>
+    <Grid container xs={12}justifyContent="flex-start" direction="column"       marginLeft="2em">
     <Grid
       container
       item
       direction="column"
       alignContent={"start "}
       className="cartResume"
-      marginLeft="2em"
 
       justifyContent="space-between"
       alignItems="stretch"
+    
     >
       <Grid
         container
@@ -82,11 +82,11 @@ const CartResume = () => {
          direction="column"
          alignContent={"start"}
          className="buttonBuy"
-         marginLeft="2em"
+ 
         >
           <button><h2>FINALIZAR COMPRA </h2></button>
         </Grid>
-        </>
+        </Grid>
   );
 };
 
