@@ -25,14 +25,14 @@ const ItemCount = ({ stock, initial=1, onAdd, counter, setCounter}) => {
   };
 
   return (
-    <Grid>
+    <Grid className="itemCount">
 
       <Grid container  row  className="counter">   
     
         <Grid
           container
           item
-          lg={12}
+          lg={6}
           direction={"row"}
           justifyContent={"space-between"}
           alignItems={"center"}
@@ -48,7 +48,7 @@ const ItemCount = ({ stock, initial=1, onAdd, counter, setCounter}) => {
     </Grid>
 {/* 
       <ButtonAdd name= {"Agregar al carrito"} onClick={onAdd} />            */}
-      <button onClick={onAdd}>Agregar al carrito</button>
+      <Button variant="contained" className="btn-add" onClick={onAdd}>Agregar al carrito</Button>
     </Grid>
   );
 };

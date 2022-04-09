@@ -10,7 +10,7 @@ import Politica from "./components/Politica";
 import Contacto from "./components/Contacto";
 
 import Cart from "./components/Cart";
-import { CartContext } from "./context/CartContext";
+import CartProvider, { CartContext } from "./context/CartContext";
 import { useState } from "react";
 import CategoryContainer from "./components/CategoryList";
 import ProductsContainer from "./components/ProductsContainer";
@@ -25,9 +25,14 @@ function App() {
     return cart.some((prod) => prod.id === id)
   }
 
+  const cartQuantity = () => {
+
+    return cart.reduce((acc, prod) => acc += prod.counter,0 )
+  }
+
   return (
  
-<CartContext.Provider value={ {cart, itemAdd, isInCart } } >
+<CartProvider >
 
     <RootContainer>
         <BrowserRouter>
@@ -47,7 +52,7 @@ function App() {
         </Routes>
     </BrowserRouter>
       </RootContainer>
-</CartContext.Provider>
+</CartProvider>
 
   );
 }
