@@ -5,8 +5,9 @@ import ItemCount from "../itemCount";
 import "./styles.scss";
 import DeleteIcon from "@mui/icons-material/Delete";
 import { width } from "@mui/system";
+import { Link } from "react-router-dom";
 
-const CartItem = () => {
+const CartItem = ({name, img, description_short, price, id}) => {
   const { cart, cartQuantity } = useContext(CartContext);
   const [provCart, setProvCart] = useState(cart);
 
@@ -50,12 +51,22 @@ const CartItem = () => {
         width={"100%"}
         alignSelf={"center"}
       >
-        <ItemCount></ItemCount>
+        <ItemCount counter={2}></ItemCount>
+      </Grid>
+      <Grid
+       container
+       item
+       xs={2}
+       direction="row"
+       justifyContent={"center"}
+       width={"100%"}
+       alignSelf={"center"}>
+        <Link to="/">Ver detalle</Link>
       </Grid>
       <Grid
         container
         item
-        xs={4}
+        xs={2}
         direction={"row"}
         justifyContent="flex-end"
         alignSelf={"center"}
