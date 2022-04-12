@@ -16,19 +16,6 @@ import CategoryContainer from "./components/CategoryList";
 import ProductsContainer from "./components/ProductsContainer";
 
 function App() {
-  const [cart, setCart] =useState([])
-  const itemAdd= (item) => {
-    setCart([...cart, item])
-  }
-
-  const isInCart= (id) =>{
-    return cart.some((prod) => prod.id === id)
-  }
-
-  const cartQuantity = () => {
-
-    return cart.reduce((acc, prod) => acc += prod.counter,0 )
-  }
 
   return (
  

@@ -26,6 +26,7 @@ const ItemDetail = ({
       price: price,
       img: img,
       counter: counter,
+      stock: stock,
       id: id,
     };
     itemAdd(itemToAdd);
@@ -42,8 +43,7 @@ const ItemDetail = ({
           <img src={img}></img>
         </Grid>
         <Grid
-          container
-     
+          container     
           direction="column"
           justifyContent="space-evenly"
           alignItems="flex-end"

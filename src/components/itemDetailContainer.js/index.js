@@ -3,6 +3,8 @@ import ItemDetail from '../itemDetail';
 import { stock } from '../../data/stock';
 import { useParams } from 'react-router-dom';
 import CategoryContainer from '../CategoryList';
+import { collection, doc, getDoc } from 'firebase/firestore';
+import { db } from '../../firebase/config';
 
 const ItemDetailContainer = () => {
 
@@ -18,10 +20,10 @@ const ItemDetailContainer = () => {
   })
     
   useEffect(() => {
-    prom.then((res) =>{
-      
-      setDetail( res.find((prod)=>prod.id === Number (itemId) ))
-      
+    const itemRef = doc(db, "products", itemId)
+    getDoc(itemRef).then((doc)=> {
+      const prod = {id: doc.id, ...doc.data()}
+      setDetail(prod)      
 
  
     })

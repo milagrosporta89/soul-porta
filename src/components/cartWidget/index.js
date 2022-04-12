@@ -6,8 +6,7 @@ import "./styles.scss";
 
 const  CartWidget= ()  => {
   const {cart, cartQuantity} =useContext(CartContext)
-  console.log(cart)
-  console.log(cartQuantity())
+
 
   return (
     <Link to="/cart" className='cartWidget'>

@@ -6,55 +6,66 @@ import CartResume from "../CartResume";
 import "./styles.scss";
 
 const Cart = () => {
-  const { cart, cartQuantity } = useContext(CartContext);
+  const { cart, cartQuantity, totalCart } = useContext(CartContext);
+
+ 
 
   return (
     <Container alignContent="center" className="cart-list">
       <Grid marginTop={"2em"}>
         <h2>Tu Carrito</h2>
       </Grid>
-      <Grid container item sx={12}>
-        <Grid container item xs={8} direction={"row"}>
-          <Grid>
-            <Grid
-              container
-              item
-              direction="row"
-              justifyContent="space-around"
-              xs={12}
-            >
-              <Grid item xs={4}>
-                <h4>Producto</h4>
-              </Grid>
-              <Grid item xs={5}>
-                <h4>Cantidad</h4>
-              </Grid>
-              <Grid item xs={1}>
-                <h4>Precio</h4>
-              </Grid>
-            </Grid>
-            <Divider />
 
-            <Grid container item xs={12} direction={"column"} marginTop="2em">
+      <Grid container item >
+        <Grid container item={true} xs={8} direction={"row"}>
+          {cartQuantity() > 0 ? (
+            <Grid>
               <Grid
                 container
-                item
-                justifyContent="center"
-                alignContent="center"
+                item={true}
+                direction="row"
+                justifyContent="space-around"
+                xs={12}
               >
-                <CartItem></CartItem>
-                <CartItem></CartItem>
-                <CartItem></CartItem>
-                <CartItem></CartItem>
-                <CartItem></CartItem>
-                <CartItem></CartItem>
-                <CartItem></CartItem>
+                <Grid item={true}  xs={4}>
+                  <h4>Producto</h4>
+                </Grid>
+                <Grid item={true} xs={5}>
+                  <h4>Cantidad</h4>
+                </Grid>
+                <Grid item={true} xs={1}>
+                  <h4>Precio</h4>
+                </Grid>
+              </Grid>
+              <Divider />
+
+              <Grid container item={true} xs={12} direction={"column"} marginTop="2em">
+                <Grid
+                  container
+                  item
+                  justifyContent="center"
+                  alignContent="center"
+                >
+                  {cart.map((item) => (
+                    <CartItem
+                      name={item.name}
+                      img={item.img}
+                      price={item.price}
+                      counter={item.counter}
+                      stock={item.stock}
+                      id={item.id}
+                    ></CartItem>
+                  ))}
+                </Grid>
               </Grid>
             </Grid>
-          </Grid>
+          ) : (
+            <h2>Tu Carrito esta vacio</h2>
+          )}
         </Grid>
-        <Grid container item xs={4} direction={"row"}>
-          <CartResume></CartResume>
+
+        <Grid container item={true} xs={4} direction={"row"}>
+          <CartResume total={totalCart()}></CartResume>
         </Grid>
       </Grid>
     </Container>

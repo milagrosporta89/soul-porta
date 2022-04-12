@@ -2,7 +2,7 @@ import { Divider, Grid } from "@mui/material";
 import React from "react";
 import "./styles.scss";
 
-const CartResume = () => {
+const CartResume = ({total}) => {
   return (
     <Grid container xs={12}justifyContent="flex-start" direction="column"       marginLeft="2em">
     <Grid
@@ -38,7 +38,7 @@ const CartResume = () => {
        
         >
           <p>Subtotal</p>
-          <p>$1500</p>
+          <p>$ {total}</p>
         </Grid>
         <Grid
           container

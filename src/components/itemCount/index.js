@@ -18,14 +18,17 @@ const ItemCount = ({
   setCounter,
   display,
 }) => {
+ 
   const handleAdd = () => {
+    console.log (stock)
     if (counter < stock) {
-      setCounter((prev) => prev + 1);
+      setCounter(counter + 1);
+
     }
   };
   const handleSubstract = () => {
     if (counter > 1) {
-      setCounter((prev) => prev - 1);
+      setCounter(counter -1);
     }
   };
 

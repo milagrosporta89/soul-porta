@@ -3,44 +3,31 @@ import { Grid } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import Item from "../item";
-import { stock }from "../../data/stock"
-
-
+import { stock } from "../../data/stock";
+import { collection, getDocs } from "firebase/firestore";
+import { db } from "../../firebase/config";
 
 const ItemList = () => {
-  const [list, setList] = useState ([])
-  const { categoryId} = useParams()
-  console.log (stock)
+  const [list, setList] = useState([]);
+  const { categoryId } = useParams();
 
-  console.log(categoryId)
-  const prom = new Promise ((req,res)=>{
-    setTimeout(()=>
-      req(stock),
-    700)
-  })
 
   useEffect(() => {
-   prom.then((res) =>{
-     
-    if (categoryId){
-      setList(res.filter((prod)=>prod.category === categoryId))
-    }else{
-      setList(res)
-    }
+    const prodRef = collection(db, "products");
+    getDocs(prodRef).then((resp) => {
+      const items = resp.docs.map((doc) => ({id: doc.id, ...doc.data()})) ///parseado del snapshot que vviene desde firebase-- el metodo .data() es de firebase. se genera un nuevo arreglo que ya sirve para operar
+      if (categoryId){
+        
+        setList(items.filter((prod)=>prod.category === categoryId));
+      }else{
+        setList(items)
+      }
+    });
 
-   })
-        .catch(err=>console.log("error"))
-  }, [categoryId])
-  
-  
-
-  
-
-console.log(list)
-  
+  }, [categoryId]);
 
   return (
-    <Grid container item sx={{  }}>
+    <Grid container item sx={{}}>
       {list.map((item) => {
         return (
           <Item
