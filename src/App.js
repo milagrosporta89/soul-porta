@@ -8,14 +8,18 @@ import CartWidget from "./components/cartWidget";
 import Nosotras from "./components/Nosotras";
 import Politica from "./components/Politica";
 import Contacto from "./components/Contacto";
-
 import Cart from "./components/Cart";
 import CartProvider, { CartContext } from "./context/CartContext";
-import { useState } from "react";
 import CategoryContainer from "./components/CategoryList";
 import ProductsContainer from "./components/ProductsContainer";
+import Footer from "./components/footer";
+
+
+
 
 function App() {
+
+
 
   return (
  
@@ -35,8 +39,9 @@ function App() {
           <Route path="/politica" element={<Politica />} />
           <Route path="/contacto" element={<Contacto />} />
           <Route path="/cart" element={<Cart />} />
-        {/*   <Route path="*" element={<Navigate to="/" />} /> */}
+
         </Routes>
+        <Footer/>
     </BrowserRouter>
       </RootContainer>
 </CartProvider>

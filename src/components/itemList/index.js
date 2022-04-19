@@ -4,7 +4,7 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import Item from "../item";
 import { stock } from "../../data/stock";
-import { collection, getDocs } from "firebase/firestore";
+import { collection, getDocs, query, where } from "firebase/firestore";
 import { db } from "../../firebase/config";
 
 const ItemList = () => {
@@ -13,16 +13,16 @@ const ItemList = () => {
 
 
   useEffect(() => {
-    const prodRef = collection(db, "products");
+    
+    const prodRef = categoryId ? query(collection(db, "products"),where("category","==", categoryId)) //para traer desde bd directamente con query de category
+    : collection(db, "products");
+
     getDocs(prodRef).then((resp) => {
       const items = resp.docs.map((doc) => ({id: doc.id, ...doc.data()})) ///parseado del snapshot que vviene desde firebase-- el metodo .data() es de firebase. se genera un nuevo arreglo que ya sirve para operar
-      if (categoryId){
-        
-        setList(items.filter((prod)=>prod.category === categoryId));
-      }else{
+   
         setList(items)
       }
-    });
+    );
 
   }, [categoryId]);
 

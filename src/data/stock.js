@@ -9,7 +9,7 @@ export const stock= [
       //img:"./public",
      
       category:"collares",
-      id:1,
+
       stock: 5
     },
     {
@@ -19,7 +19,7 @@ export const stock= [
       price: "$1800",
       img: "/img/chapa de agatha.jpg",
       category:"pulseras",
-      id:2,
+    
       stock: 7
     },
     {
@@ -29,7 +29,7 @@ export const stock= [
       price: "$2500",
       img: "/img/cuarzo azul.jpg",
       category:"piedras",
-      id:3,
+ 
       stock: 11
     },
     {
@@ -39,7 +39,7 @@ export const stock= [
       price: "$2000",
       img: "/img/agata coralina.jpg",
       category:"collares",
-      id:4,
+  
       stock: 10
     },
     {
@@ -49,7 +49,7 @@ export const stock= [
       price: "$2000",
       img: "/img/cuarzo cristal.jpg",
       category:"collares",
-      id:5,
+
       stock: 10
     },
     {
@@ -59,7 +59,7 @@ export const stock= [
       price: "$2000",
       img: "/img/onix.jpg",
       category:"collares",
-      id:6,
+
       stock: 10
     },
     {
@@ -69,7 +69,7 @@ export const stock= [
       price: "$2000",
       img: "/img/cuarzo rosa.jpg",
       category:"collares",
-      id:7,
+
       stock: 10
     },
     {
@@ -79,7 +79,7 @@ export const stock= [
       price: "$2000",
       img: "/img/amatista.jpg",
       category:"collares",
-      id:8,
+
       stock: 10
     },
 

@@ -10,20 +10,14 @@ const ItemDetailContainer = () => {
 
     const [detail, setDetail] = useState(null)
     const {itemId} = useParams()
- 
+    console.log(detail)
 
-  
-  const prom = new Promise ((req,res)=>{
-    setTimeout(()=>
-      req(stock),
-    700)
-  })
-    
   useEffect(() => {
     const itemRef = doc(db, "products", itemId)
     getDoc(itemRef).then((doc)=> {
       const prod = {id: doc.id, ...doc.data()}
-      setDetail(prod)      
+      setDetail(prod) 
+           
 
  
     })

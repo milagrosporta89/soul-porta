@@ -8,9 +8,24 @@ import SearchBar from "../searchBar";
 import { Grid } from "@mui/material";
 import { Link } from "react-router-dom";
 import NavBarList from "../NavBarList";
+import { db } from "../../firebase/config";
+import { collection, addDoc } from "firebase/firestore";
+import { stock } from "../../data/stock";
+import { fileUpload } from "../../firebase/fileUpload";
 
 
 const Navbar = () => {
+  console.log (stock)
+const handleUpload =  ()=> {
+  stock.forEach ( async e => {
+    // const imgURL = await fileUpload(e.img)
+
+   await addDoc(collection(db,"products"),e)
+  })
+
+  
+}
+
   return (
     <div>
       <div className="top-container">
@@ -28,6 +43,7 @@ const Navbar = () => {
             <CartWidget fontSize="large"></CartWidget>
           </Grid>
         </Grid>
+        <button onClick={handleUpload}>agregar a bd</button>
       </div>
 
       <div className="navBar-item-container">
