@@ -1,5 +1,6 @@
 import { Divider, Grid } from "@mui/material";
 import React from "react";
+import { Link } from "react-router-dom";
 import "./styles.scss";
 
 const CartResume = ({total}) => {
@@ -82,9 +83,10 @@ const CartResume = ({total}) => {
          direction="column"
          alignContent={"start"}
          className="buttonBuy"
+    
  
-        >
-          <button><h2>FINALIZAR COMPRA </h2></button>
+        > <button><h2>FINALIZAR COMPRA </h2></button>
+      {/*    <Link to="/checkout"></Link>  */}
         </Grid>
         </Grid>
   );
