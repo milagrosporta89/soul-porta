@@ -3,92 +3,93 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "./styles.scss";
 
-const CartResume = ({total}) => {
+const CartResume = ({ total }) => {
   return (
-    <Grid container xs={12}justifyContent="flex-start" direction="column"       marginLeft="2em">
     <Grid
       container
-      item
+      xs={12}
+      justifyContent="flex-start"
       direction="column"
-      alignContent={"start "}
-      className="cartResume"
-
-      justifyContent="space-between"
-      alignItems="stretch"
-    
+      marginLeft="2em"
     >
       <Grid
         container
         item
         direction="column"
-        alignItems={"center"}
-        className="title"
+        alignContent={"start "}
+        className="cartResume"
+        justifyContent="space-between"
+        alignItems="stretch"
       >
-        <Grid>
-          <h2>TU COMPRA </h2>
-        </Grid>
-      </Grid>
-      <Divider />
-      <Grid container>
         <Grid
           container
           item
-          direction="row"
-          justifyContent="space-between"
-          alignItems="center"
-       
+          direction="column"
+          alignItems={"center"}
+          className="title"
         >
-          <p>Subtotal</p>
-          <p>$ {total}</p>
+          <Grid>
+            <h2>TU COMPRA </h2>
+          </Grid>
         </Grid>
-        <Grid
-          container
-          item
-          direction="row"
-          justifyContent="space-between"
-          alignItems="center"
-        >
-          <p>Envio</p>
-          <p>$1500</p>
-        </Grid>
+        <Divider />
+        <Grid container>
+          <Grid
+            container
+            item
+            direction="row"
+            justifyContent="space-between"
+            alignItems="center"
+          >
+            <p>Subtotal</p>
+            <p>$ {total}</p>
+          </Grid>
+          <Grid
+            container
+            item
+            direction="row"
+            justifyContent="space-between"
+            alignItems="center"
+          >
+            <p>Envio</p>
+            <p>$1500</p>
+          </Grid>
         </Grid>
         <Divider />
 
-      <Grid        container
-          item
-          direction="row"
-          justifyContent="flex-end"
-          alignItems="flex-end">
-
         <Grid
           container
           item
           direction="row"
-          justifyContent="space-between"
+          justifyContent="flex-end"
           alignItems="flex-end"
-     
-
         >
-          <p>TOTAL</p>
-          <p>$1500</p>
+          <Grid
+            container
+            item
+            direction="row"
+            justifyContent="space-between"
+            alignItems="flex-end"
+          >
+            <p>TOTAL</p>
+            <p>$1500</p>
+          </Grid>
         </Grid>
-        
-
       </Grid>
-     
+      <Grid
+        container
+        item
+        direction="column"
+        alignContent={"start"}
+        className="buttonBuy"
+      >
+        <Link to="/checkout">
+          <button>
+            <h2>FINALIZAR COMPRA </h2>
+          </button>        
+        </Link>
+      </Grid>
     </Grid>
-        <Grid
-         container
-         item
-         direction="column"
-         alignContent={"start"}
-         className="buttonBuy"
-    
- 
-        > <button><h2>FINALIZAR COMPRA </h2></button>
-      {/*    <Link to="/checkout"></Link>  */}
-        </Grid>
-        </Grid>
   );
 };
 

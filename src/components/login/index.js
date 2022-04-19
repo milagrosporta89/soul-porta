@@ -23,8 +23,9 @@ const Login = () => {
             name="email"
             variant="outlined"
             placeholder="Ingresa tu Email"
-            fullWidth="true"
+            fullWidth={true}         
             type="email"
+            autoComplete="false"
            
           />
         </Grid>
@@ -36,7 +37,7 @@ const Login = () => {
             variant="outlined"
             type={"password"}
             placeholder="Ingresa tu contraseña"
-            fullWidth="false"
+            fullWidth={true}
           
             size="normal"
            

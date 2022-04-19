@@ -22,43 +22,36 @@ const CartProvider = ({ children }) => {
   };
 
   const removeItem = (idItem) => {
-    setCart(cart.filter((e) => e.id !== idItem))
+    setCart(cart.filter((e) => e.id !== idItem));
   };
-  const totalCart = ()=>{
-
-    return cart.reduce((acc, prod)=> (acc+= prod.price*prod.counter),0)
+  const totalCart = () => {
+    return cart.reduce((acc, prod) => (acc += prod.price * prod.counter), 0);
   };
 
-  const modifyCart= (id, count) => {
-  
-setCart( cart.map ((item) => {
-  if(item.id== id){
-    return {...item,counter:count}
-  }else{
-    return item
-  }
-}))
-    
-
-  
-      }
-
-
-  
-    
-
-
-  
-
-  useEffect(() => {//para traer de session storage el cart
+  const modifyCart = (id, count) => {
+    setCart(
+      cart.map((item) => {
+        if (item.id == id) {
+          return { ...item, counter: count };
+        } else {
+          return item;
+        }
+      })
+    );
+  };
+   const emptyCart = () => {
+     setCart ([])
+   }
+  useEffect(() => {
+    //para traer de session storage el cart
     const cart = JSON.parse(sessionStorage.getItem("cart"));
-
     if (cart) {
       setCart(cart);
     }
   }, []);
 
-  useEffect(() => { //para agregar un item al cart
+  useEffect(() => {
+    //para agregar un item al cart
     sessionStorage.setItem("cart", JSON.stringify(cart));
   }, [cart]);
 
@@ -71,7 +64,8 @@ setCart( cart.map ((item) => {
         cartQuantity,
         removeItem,
         totalCart,
-        modifyCart
+        modifyCart,
+        emptyCart,
       }}
     >
       {children}

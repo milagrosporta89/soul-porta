@@ -36,6 +36,7 @@ const ItemList = () => {
             img={item.img}
             price={item.price}
             id={item.id}
+            key={item.id}
           ></Item>
         );
       })}

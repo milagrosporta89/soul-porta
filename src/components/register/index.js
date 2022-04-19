@@ -23,7 +23,7 @@ const Register = () => {
             name="email"
             variant="outlined"
             placeholder="Ingresa tu Email"
-            fullWidth="true"
+            fullWidth={true}
             type="email"
            
           />
@@ -36,7 +36,7 @@ const Register = () => {
             variant="outlined"
             type={"password"}
             placeholder="Ingresa tu contraseña"
-            fullWidth="false"
+            fullWidth={true}
           
             size="normal"
            
@@ -51,7 +51,7 @@ const Register = () => {
             variant="outlined"
             type={"password"}
             placeholder="Ingresa tu contraseña"
-            fullWidth="false"
+            fullWidth={true}
           
             size="normal"
            

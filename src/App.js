@@ -3,7 +3,7 @@ import NavBar from "./components/navBar/navBar";
 import ItemListContainer from "./components/itemListContainer";
 import RootContainer from "./components/rootContainer";
 import ItemDetailContainer from "./components/itemDetailContainer.js";
-import { BrowserRouter, Routes, Route, Navigate, } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import CartWidget from "./components/cartWidget";
 import Nosotras from "./components/Nosotras";
 import Politica from "./components/Politica";

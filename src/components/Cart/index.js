@@ -1,14 +1,21 @@
 import { Container, Divider, Grid } from "@mui/material";
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { CartContext } from "../../context/CartContext";
 import CartItem from "../CartItem";
 import CartResume from "../CartResume";
 import "./styles.scss";
+import { Navigate } from "react-router-dom";
+import Ticket from "../ticket";
 
 const Cart = () => {
   const { cart, cartQuantity, totalCart } = useContext(CartContext);
+  const [orderId, setOrderId] = useState(null)
 
- 
+  
+
+ if (cart.length===0){ //early return por si el carrito esta vacio 
+   return <Navigate to="/"></Navigate>
+ }
 
   return (
     <Container alignContent="center" className="cart-list">
