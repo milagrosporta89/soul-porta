@@ -15,6 +15,7 @@ import ProductsContainer from "./components/ProductsContainer";
 import Footer from "./components/footer";
 import FooterLower from "./components/footerLower";
 import Login from "./components/login";
+import Register from "./components/register";
 
 
 
@@ -39,6 +40,7 @@ function App() {
           <Route path="/nosotras" element={<Nosotras />} />
           <Route path="/productos" element={<ProductsContainer />} />
           <Route path="/login" element={<Login/>}/>
+          <Route path="/register" element={<Register/>}/>
           <Route path="/politica" element={<Politica />} />
           <Route path="/contacto" element={<Contacto />} />
           <Route path="/cart" element={<Cart />} />
