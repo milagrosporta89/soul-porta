@@ -37,13 +37,14 @@ const handleUpload =  ()=> {
             <Link to ="/" ><img src={logo}></img></Link>
           </Grid>
           <Grid item lg={2} alignItems="center">
-            <p>iniciar sesion|crear cuenta</p>
+            <Link to="/login"><p>iniciar sesion|crear cuenta</p></Link>
+            
           </Grid>
           <Grid item lg={1} align="center">
             <CartWidget fontSize="large"></CartWidget>
           </Grid>
         </Grid>
-        <button onClick={handleUpload}>agregar a bd</button>
+        {/* <button onClick={handleUpload}>agregar a bd</button> */}
       </div>
 
       <div className="navBar-item-container">
