@@ -5,11 +5,13 @@ import { useParams } from 'react-router-dom';
 import CategoryContainer from '../CategoryList';
 import { collection, doc, getDoc } from 'firebase/firestore';
 import { db } from '../../firebase/config';
+import { CircularProgress, Grid } from '@mui/material';
 
 const ItemDetailContainer = () => {
 
     const [detail, setDetail] = useState(null)
     const {itemId} = useParams()
+    const [ loading, setLoading] = useState(true)
     console.log(detail)
 
   useEffect(() => {
@@ -17,6 +19,7 @@ const ItemDetailContainer = () => {
     getDoc(itemRef).then((doc)=> {
       const prod = {id: doc.id, ...doc.data()}
       setDetail(prod) 
+      setLoading(false)
            
 
  
@@ -27,6 +30,11 @@ const ItemDetailContainer = () => {
 
   return (
     <>
+     {loading &&
+      <Grid container item justifyContent="center" alignItems="center" height={"50vh"}>
+          <CircularProgress style={{color:" #b98411"}} /> 
+        </Grid>
+      }
     
     
     

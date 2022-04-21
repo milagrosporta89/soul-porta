@@ -4,7 +4,7 @@ import React, { useContext, useState } from 'react'
 import { CartContext } from '../../context/CartContext';
 import ButtonAdd from '../buttonAdd'
 import "./styles.scss";
-import { collection, addDoc, Timestamp } from 'firebase/firestore';
+import { collection, addDoc, Timestamp, where, writeBatch, query, getDocs, documentId, doc } from 'firebase/firestore';
 import { db } from '../../firebase/config';
 import Ticket from '../ticket';
 
@@ -27,9 +27,10 @@ const RegisterNoAuth = () => {
       })
     }
     
+    
 //aarmado del arreglo para mandar a firebase
-
-    const handleSubmit = (e)=>{
+    const error = []
+    const handleSubmit = async (e)=>{
         e.preventDefault ()
         const order = {
           items: cart,
@@ -37,12 +38,49 @@ const RegisterNoAuth = () => {
           buyer: {...values},
           date: Timestamp.fromDate(new Date()) /// timestamp es una clase de firebase que permite trabajar con mas facilidad las fechas
       }
-
+      const batch = writeBatch(db)
       const ordersRef = collection(db,"orders")
+      const productsRef = collection(db,"products")
+      const q = query(
+        productsRef,
+        where(
+          documentId(),
+          "in",
+          cart.map((e) => e.id)
+        )
+      );
+      const products = await getDocs(q);
+      products.docs.forEach (doc=> {
+        const itemToUpdate= cart.find (e => e.id === doc.id)
+        console.log ("itemtoUpdate",itemToUpdate.counter)
+        console.log('------------------');
+        console.log ("doc.data()",doc.data().stock)
+        console.log ("resssta ")
+        console.log (doc.data().stock - itemToUpdate.counter)
+        batch.update (doc.ref, {stock : doc.data().stock - itemToUpdate.counter})
+        
+     /*    if (doc.data().stock >= itemToUpdate.counter){
+          batch.update (doc.ref, {stock : doc.data().stock - itemToUpdate.counter})
+          console.log ("itemtoUpdate",itemToUpdate.counter)
+          console.log('------------------');
+          console.log ("doc.data()",doc.data().stock)
+          console.log ("resssta ")
+          console.log (doc.data().stock - itemToUpdate.counter)
+        }else{ 
+          error.push(doc.data())
+          
+        } */
+      })      
       addDoc(ordersRef,order)
-      .then((doc) => setOrderId(doc.id))
-      emptyCart()
+      
+      .then((doc) => {
+        setOrderId(doc.id)
+        emptyCart()
+        batch.commit()
+        console.log ("todo actualiizdo") 
 
+      }
+    )
  
     }
 

@@ -18,42 +18,33 @@ import Login from "./components/login";
 import Register from "./components/register";
 import RegisterNoAuth from "./components/register/registerNoAuth";
 
-
-
-
-
 function App() {
-
-
-
   return (
- 
-<CartProvider >
-
-    <RootContainer>
+    <CartProvider>
+      <RootContainer>
         <BrowserRouter>
-        <NavBar />
-
-        <Routes>
-          <Route path="/" element={<ItemListContainer />} />
-          <Route path="/category/:categoryId" element={<ProductsContainer/>} />
-          <Route path="/item/:itemId" element={<ItemDetailContainer />} />
-          <Route path="/nosotras" element={<Nosotras />} />
-          <Route path="/productos" element={<ProductsContainer />} />
-          <Route path="/login" element={<Login/>}/>
-          <Route path="/register" element={<Register/>}/>
-          <Route path="/checkout" element={<RegisterNoAuth/>}/>
-          <Route path="/politica" element={<Politica />} />
-          <Route path="/contacto" element={<Contacto />} />
-          <Route path="/cart" element={<Cart />} />
-
-        </Routes>
-        <Footer/>
-    </BrowserRouter>
+          <NavBar />
+          <Routes>
+            <Route path="/" element={<ItemListContainer />} />
+            <Route
+              path="/category/:categoryId"
+              element={<ProductsContainer />}
+            />
+            <Route path="/item/:itemId" element={<ItemDetailContainer />} />
+            <Route path="/nosotras" element={<Nosotras />} />
+            <Route path="/productos" element={<ProductsContainer />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/register" element={<Register />} />
+            <Route path="/checkout" element={<RegisterNoAuth />} />
+            <Route path="/politica" element={<Politica />} />
+            <Route path="/contacto" element={<Contacto />} />
+            <Route path="/cart" element={<Cart />} />
+          </Routes>
+          <Footer />
+        </BrowserRouter>
       </RootContainer>
-      <FooterLower/>
-</CartProvider>
-
+      <FooterLower />
+    </CartProvider>
   );
 }
 

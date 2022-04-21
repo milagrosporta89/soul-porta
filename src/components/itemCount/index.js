@@ -1,14 +1,6 @@
 import { Button, Grid } from "@mui/material";
-import { Box } from "@mui/system";
 import React, { useState } from "react";
 import "./styles.scss";
-
-import Card from "@mui/material/Card";
-import CardActions from "@mui/material/CardActions";
-import CardContent from "@mui/material/CardContent";
-
-import Typography from "@mui/material/Typography";
-import ButtonAdd from "../buttonAdd";
 
 const ItemCount = ({
   stock,

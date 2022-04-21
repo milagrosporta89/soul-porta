@@ -1,9 +1,48 @@
 import { Divider, Grid } from "@mui/material";
-import React from "react";
+import { collection, documentId, getDocs, query, where } from "firebase/firestore";
+import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
+import { CartContext } from "../../context/CartContext";
+import { db } from "../../firebase/config";
 import "./styles.scss";
+import { useNavigate } from 'react-router-dom';
 
-const CartResume = ({ total }) => {
+const CartResume = ({ total , functionClick}) => {
+
+  const {cart, totalCart, emptyCart } = useContext( CartContext )
+  const navigate = useNavigate()
+  
+
+  const handleBuy = async (e) => {
+    e.preventDefault()
+    const outOfStock = []
+
+    const productsRef = collection(db, "products");
+    const q = query(
+      productsRef,
+      where(
+        documentId(),
+        "in",
+        cart.map((e) => e.id)
+      )
+    );
+    const products = await getDocs(q);
+    products.docs.forEach((doc) => {
+      const itemInCart = cart.find((item) => item.id === doc.id);
+      if (doc.data().stock < itemInCart.counter) {
+        outOfStock.push(doc.data());
+      }
+    });
+    if (outOfStock.length===0){
+      navigate("/checkout")
+    }else{
+      navigate("/")//hacer un alerta que diga que item no esta en stock 
+    }
+    //console.log(products.docs.map(doc=>doc.data()))//para poder leer el objeto que viene de la peticion//
+
+  };
+  
+
   return (
     <Grid
       container
@@ -83,11 +122,12 @@ const CartResume = ({ total }) => {
         alignContent={"start"}
         className="buttonBuy"
       >
-        <Link to="/checkout">
-          <button>
+       
+
+          <button onClick={(e) => handleBuy(e)}>
             <h2>FINALIZAR COMPRA </h2>
           </button>        
-        </Link>
+  
       </Grid>
     </Grid>
   );

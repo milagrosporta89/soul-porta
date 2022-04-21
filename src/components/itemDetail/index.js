@@ -33,6 +33,7 @@ const ItemDetail = ({
   };
 
   return (
+    
     <Container>
       <Grid container item className="item-detail" margin={"2em"}>
         <Grid
