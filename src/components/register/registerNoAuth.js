@@ -24,64 +24,70 @@ import Input from "../input";
 const RegisterNoAuth = () => {
   const { cart, totalCart, emptyCart } = useContext(CartContext);
   const [orderId, setOrderId] = useState();
-  const [ btnLoad, setBtnLoad ] = useState (false)
-    // estado para guardar los valores de los inputs
-  const { values, handleInputChange, errors, setErrors} = useForm({
-    name:"",
-    email:"",
-    phone:""
+  const [btnLoad, setBtnLoad] = useState(false);
+  // estado para guardar los valores de los inputs
+  const { values, handleInputChange, errors, setErrors } = useForm({
+    name: "",
+    email: "",
+    phone: "",
+  });
 
-  })
+  const validation = () => {
+    let temp = {};
+    temp.name = values.name ? "" : "Complete el campo";
+    temp.email = /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/.test(
+      values.email
+    )
+      ? ""
+      : "Formato mail aaaa@bbb.ccc";
+    temp.phone = /^[0-9]{10,12}$/i.test(values.phone)
+      ? ""
+      : "El numero debe tener entre 10 y 12 caracteres";
 
-  const validation =() => {
-    let temp={}
-    temp.name= values.name ? "": "Complete el campo"
-    temp.email = ( /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/).test(values.email) ? "" : "Formato mail aaaa@bbb.ccc"
-    temp.phone = ( /^[0-9]{10,12}$/i).test(values.phone) ? "" : "El numero debe tener entre 10 y 12 caracteres"
-    
-    setErrors({...temp})
-    return Object.values(temp).every(x => x == "")
-  }
+    setErrors({ ...temp });
+    return Object.values(temp).every((x) => x == "");
+  };
 
   //aarmado del arreglo para mandar a firebase
 
   const handleSubmit = async (e) => {
+    e.preventDefault();
 
-     if (!validation()){
-       console.log(errors)
-     }
-    setBtnLoad(true)
-    e.preventDefault()
-   /*  e.preventDefault();
-    const order = {
-      items: cart,
-      total: totalCart(),
-      buyer: { ...values },
-      date: Timestamp.fromDate(new Date()), /// timestamp es una clase de firebase que permite trabajar con mas facilidad las fechas
-    };
-    const batch = writeBatch(db);
-    const ordersRef = collection(db, "orders");
-    const productsRef = collection(db, "products");
-    const q = query(
-      productsRef,
-      where(
-        documentId(),
-        "in",
-        cart.map((e) => e.id)
-      )
-    );
-    const products = await getDocs(q);
-    products.docs.forEach((doc) => {
-      const itemToUpdate = cart.find((e) => e.id === doc.id);
-      batch.update(doc.ref, { stock: doc.data().stock - itemToUpdate.counter });
-    });
+    if (validation()) {
+      setBtnLoad(true);
 
-    addDoc(ordersRef, order).then((doc) => {
-      setOrderId(doc.id);
-      emptyCart();
-      batch.commit();
-      console.log("todo actualiizdo");
-    }); */
+      const order = {
+        items: cart,
+        total: totalCart(),
+        buyer: { ...values },
+        date: Timestamp.fromDate(new Date()), /// timestamp es una clase de firebase que permite trabajar con mas facilidad las fechas
+      };
+      const batch = writeBatch(db);
+      const ordersRef = collection(db, "orders");
+      const productsRef = collection(db, "products");
+      const q = query(
+        productsRef,
+        where(
+          documentId(),
+          "in",
+          cart.map((e) => e.id)
+        )
+      );
+      const products = await getDocs(q);
+      products.docs.forEach((doc) => {
+        const itemToUpdate = cart.find((e) => e.id === doc.id);
+        batch.update(doc.ref, {
+          stock: doc.data().stock - itemToUpdate.counter,
+        });
+      });
+
+      addDoc(ordersRef, order).then((doc) => {
+        setOrderId(doc.id);
+        emptyCart();
+        batch.commit();
+        console.log("todo actualiizdo");
+      });
+    }
   };
 
   if (orderId) {
@@ -157,13 +163,13 @@ const RegisterNoAuth = () => {
           </Grid>
 
           <Grid container item alignItems={"center"} justifyContent="center">
-            <ButtonAdd
+            {/*             <ButtonAdd
               name="FINALIZAR COMPRA"z
               className="login-btn"
               type="submit"
-            ></ButtonAdd>  
-            
-            {/* <ButtonLoading isLoading ={btnLoad}>FINALIZAR COMPRA </ButtonLoading> */}
+            ></ButtonAdd>   */}
+
+            <ButtonLoading isLoading={btnLoad}>FINALIZAR COMPRA </ButtonLoading>
           </Grid>
         </Grid>
       </Grid>
