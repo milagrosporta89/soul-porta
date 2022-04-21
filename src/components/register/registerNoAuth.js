@@ -45,7 +45,7 @@ const RegisterNoAuth = () => {
       : "El numero debe tener entre 10 y 12 caracteres";
 
     setErrors({ ...temp });
-    return Object.values(temp).every((x) => x == "");
+    return Object.values(temp).every((x) => x == "");//chequea si todos los valores del objetos son un string vacio
   };
 
   //aarmado del arreglo para mandar a firebase
@@ -82,16 +82,16 @@ const RegisterNoAuth = () => {
       });
 
       addDoc(ordersRef, order).then((doc) => {
-        setOrderId(doc.id);
         emptyCart();
+        setOrderId(doc.id);
         batch.commit();
-        console.log("todo actualiizdo");
+        
       });
     }
   };
 
   if (orderId) {
-    return <Ticket buyId={orderId}></Ticket>;
+    return <Ticket buyId={orderId} buyDetail={cart}></Ticket>;
   }
 
   return (
