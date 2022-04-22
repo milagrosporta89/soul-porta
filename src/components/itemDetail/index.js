@@ -53,7 +53,7 @@ const ItemDetail = ({
           <Grid item justifyContent="space-evenly"> 
             <h2>{name}</h2>
             <Divider />
-            <h1>{price}</h1>
+            <h1>$ {price}</h1>
             <h2>{description_short} </h2>
             <h3>{description_long} </h3>
      
@@ -62,7 +62,13 @@ const ItemDetail = ({
 
             <Grid item justifyContent={"flex-end"} alignItems={"flex-end"}>
               <h2>Cantidad</h2>
-            <p> {stock} unidades disponibles </p>
+              {
+                (stock==0) 
+                ? <p  className="out-of-stock">¡Sin Stock! </p> 
+                : <p> {stock} unidades disponibles </p>
+              }
+
+           
               {!isInCart(id) ? (
                 <ItemCount
                   stock={stock}

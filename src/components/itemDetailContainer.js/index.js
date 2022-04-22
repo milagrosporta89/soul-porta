@@ -12,7 +12,6 @@ const ItemDetailContainer = () => {
     const [detail, setDetail] = useState(null)
     const {itemId} = useParams()
     const [ loading, setLoading] = useState(true)
-    console.log(detail)
 
   useEffect(() => {
     const itemRef = doc(db, "products", itemId)
@@ -30,15 +29,13 @@ const ItemDetailContainer = () => {
 
   return (
     <>
-     {loading &&
+     {loading ? (
+       
       <Grid container item justifyContent="center" alignItems="center" height={"50vh"}>
           <CircularProgress style={{color:" #b98411"}} /> 
         </Grid>
+     ): <ItemDetail {...detail}/>    
       }
-    
-    
-    
-    <ItemDetail {...detail}/>
     </>
 
   )

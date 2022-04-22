@@ -27,7 +27,7 @@
         margin-right: 0;
 
     }
-    p{
+    p{  
         padding:0%;
         line-height: 0%
     };
@@ -37,9 +37,15 @@
         background-color: $color-positive ;
         margin-top: 3px   
     }
-      .btn-add:hover{
+    .btn-add:hover{
         background-color: $color-positive-hover;
       }
-    
+
    
+}
+.out-of-stock{
+    color:red;
+    font-weight: bold;
+    background-color: red;
+
 }

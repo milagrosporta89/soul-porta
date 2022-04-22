@@ -1,25 +1,10 @@
-import { Divider, Grid, IconButton } from "@mui/material";
-import React, { useContext, useEffect, useState } from "react";
-import { CartContext } from "../../context/CartContext";
-import ItemCount from "../itemCount";
+import {  Grid } from '@mui/material'
+import React from 'react'
 import "./styles.scss";
-import DeleteIcon from "@mui/icons-material/Delete";
-import { width } from "@mui/system";
-import { Link } from "react-router-dom";
+import CartItem from '../CartItem';
 
-const CartItem = ({name, img, price, id,counter, stock }) => {
-  const { cart, cartQuantity, removeItem, modifyCart } = useContext(CartContext);
-  const [provCart, setProvCart] = useState(cart);
-  const [count,setCount] = useState(Number(counter))
-
-  useEffect(() => {
-    setProvCart(cart);
-  }, []);
+const TicketItem = ({buyId, buyDetail}) => {
   
-  useEffect(() => {
-    modifyCart(id,count)
-  }, [count]);
-
   return (
     <>
     <Grid
@@ -77,6 +62,6 @@ const CartItem = ({name, img, price, id,counter, stock }) => {
       <Divider/>
       </>
   );
-};
+}
 
-export default CartItem;
+export default TicketItem

@@ -25,6 +25,7 @@ const RegisterNoAuth = () => {
   const { cart, totalCart, emptyCart } = useContext(CartContext);
   const [orderId, setOrderId] = useState();
   const [btnLoad, setBtnLoad] = useState(false);
+  const [ buy, setBuy] =useState({})
   // estado para guardar los valores de los inputs
   const { values, handleInputChange, errors, setErrors } = useForm({
     name: "",
@@ -82,16 +83,21 @@ const RegisterNoAuth = () => {
       });
 
       addDoc(ordersRef, order).then((doc) => {
+         
         emptyCart();
         setOrderId(doc.id);
+
+        setBuy(order);
+
         batch.commit();
         
       });
     }
+
   };
 
   if (orderId) {
-    return <Ticket buyId={orderId} buyDetail={cart}></Ticket>;
+    return <Ticket buyId={orderId} buyDetail={buy}></Ticket>;
   }
 
   return (

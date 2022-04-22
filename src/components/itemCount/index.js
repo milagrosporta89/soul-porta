@@ -4,7 +4,6 @@ import "./styles.scss";
 
 const ItemCount = ({
   stock,
-  initial = 1,
   onAdd,
   counter,
   setCounter,
@@ -12,10 +11,8 @@ const ItemCount = ({
 }) => {
  
   const handleAdd = () => {
-    console.log (stock)
     if (counter < stock) {
       setCounter(counter + 1);
-
     }
   };
   const handleSubstract = () => {
@@ -30,7 +27,6 @@ const ItemCount = ({
         <Grid
           container
           item
-          //lg={6}
           direction={"row"}
           justifyContent={"space-between"}
           alignItems={"center"}
@@ -38,10 +34,10 @@ const ItemCount = ({
           className="buttonWraper"
         >
           <button onClick={handleSubstract}>-</button>
-          <p>{counter}</p>
+          <p>{(stock===0) ? 0 : counter}</p>
           <button onClick={handleAdd}>+</button>
         </Grid>
-      </Grid>{" "}
+      </Grid>
       {display && (
         <Button  variant="contained" className="btn-add" onClick={onAdd}>
           Agregar al carrito
