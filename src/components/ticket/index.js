@@ -45,11 +45,12 @@ const Ticket = ({ buyId, buyDetail }) => {
           </Grid>
           <Divider />
           <Grid container item xs={12} style={{}}>
-            <TicketItem buyDetail={buyDetail}></TicketItem>
-            <TicketItem buyDetail={buyDetail}></TicketItem>
-            <TicketItem buyDetail={buyDetail}></TicketItem>
-            <TicketItem buyDetail={buyDetail}></TicketItem>
-            <TicketItem buyDetail={buyDetail}></TicketItem>
+            {
+              buyDetail.items.map((e)=> (
+                <TicketItem ticketDetail={e}></TicketItem>
+              ))
+            }
+   
             <Grid container item direction="row" justifyContent={"space-evenly"} xs={4} style={{paddingLeft:""}}>
               <p>Envio</p>
               <p>Retiro por Tienda</p>

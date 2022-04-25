@@ -23,10 +23,10 @@ import Input from "../input";
 
 const RegisterNoAuth = () => {
   const { cart, totalCart, emptyCart } = useContext(CartContext);
-  const [orderId, setOrderId] = useState("15s6d1f6s8df");
+  const [orderId, setOrderId] = useState();
   const [btnLoad, setBtnLoad] = useState(false);
   const [buy, setBuy] = useState({
-    buyer: {
+  /*   buyer: {
       email: "porta@maill.com",
       name: "milagros",
       phone: "3515224114",
@@ -39,7 +39,7 @@ const RegisterNoAuth = () => {
       counter: 1,
     },
     length: 1,
-    total: 2000,
+    total: 2000, */
   });
   // estado para guardar los valores de los inputs
   const { values, handleInputChange, errors, setErrors } = useForm({
@@ -99,9 +99,8 @@ const RegisterNoAuth = () => {
 
       addDoc(ordersRef, order).then((doc) => {
         emptyCart();
-        setOrderId(doc.id);
-
         setBuy(order);
+        setOrderId(doc.id);
 
         batch.commit();
       });
@@ -110,6 +109,7 @@ const RegisterNoAuth = () => {
 
   if (orderId) {
     console.log(orderId);
+    console.log(buy)
     return <Ticket buyId={orderId} buyDetail={buy}></Ticket>;
   }
 
