@@ -1,0 +1,31 @@
+.middle-block {
+  height: 25vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.middle-block h2 {
+  font-size: 1.8em;
+  font-weight: lighter;
+  margin: 0;
+  color: #414141;
+}
+
+.middle-block h4 {
+  font-size: 1.5em;
+  font-weight: lighter;
+  color: #414141;
+  margin-top: 2px;
+}
+/*# sourceMappingURL=styles.css.map */

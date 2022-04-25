@@ -1,0 +1,27 @@
+.category {
+  background-color: white;
+  /*   margin:10px; */
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-item-align: center;
+      align-self: center;
+  padding: 2em;
+}
+
+.category img {
+  height: 340px;
+  width: 340px;
+}
+
+.category h2 {
+  font-weight: lighter;
+}
+/*# sourceMappingURL=styles.css.map */

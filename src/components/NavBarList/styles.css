@@ -1,0 +1,22 @@
+.navItems {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  width: 100%;
+  border-bottom: 1px solid grey;
+}
+
+.navItems a {
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+  line-height: 2;
+}
+/*# sourceMappingURL=styles.css.map */

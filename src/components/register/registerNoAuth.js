@@ -23,9 +23,24 @@ import Input from "../input";
 
 const RegisterNoAuth = () => {
   const { cart, totalCart, emptyCart } = useContext(CartContext);
-  const [orderId, setOrderId] = useState();
+  const [orderId, setOrderId] = useState("15s6d1f6s8df");
   const [btnLoad, setBtnLoad] = useState(false);
-  const [ buy, setBuy] =useState({})
+  const [buy, setBuy] = useState({
+    buyer: {
+      email: "porta@maill.com",
+      name: "milagros",
+      phone: "3515224114",
+    },
+    items: {
+      name: "CUARZO CRISTAL",
+      description_short: "Amuleto Sanador",
+      price: "2000",
+      img: "/img/cuarzo cristal.jpg",
+      counter: 1,
+    },
+    length: 1,
+    total: 2000,
+  });
   // estado para guardar los valores de los inputs
   const { values, handleInputChange, errors, setErrors } = useForm({
     name: "",
@@ -46,7 +61,7 @@ const RegisterNoAuth = () => {
       : "El numero debe tener entre 10 y 12 caracteres";
 
     setErrors({ ...temp });
-    return Object.values(temp).every((x) => x == "");//chequea si todos los valores del objetos son un string vacio
+    return Object.values(temp).every((x) => x == ""); //chequea si todos los valores del objetos son un string vacio
   };
 
   //aarmado del arreglo para mandar a firebase
@@ -83,20 +98,18 @@ const RegisterNoAuth = () => {
       });
 
       addDoc(ordersRef, order).then((doc) => {
-         
         emptyCart();
         setOrderId(doc.id);
 
         setBuy(order);
 
         batch.commit();
-        
       });
     }
-
   };
 
   if (orderId) {
+    console.log(orderId);
     return <Ticket buyId={orderId} buyDetail={buy}></Ticket>;
   }
 

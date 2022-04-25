@@ -1,0 +1,28 @@
+.login {
+  border: 1px solid #afafaf;
+  padding: 1em;
+  width: 100%;
+  margin-top: 2em;
+}
+
+.login h4 {
+  margin-bottom: 6px;
+  font-weight: lighter;
+}
+
+.login button {
+  margin-top: 2em;
+  height: 3em;
+  font-size: 14px;
+}
+
+.login .login-input {
+  background-color: white;
+}
+
+.login p {
+  font-weight: bold;
+  margin: 7px;
+  font-size: 14px;
+}
+/*# sourceMappingURL=styles.css.map */

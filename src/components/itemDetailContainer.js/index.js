@@ -18,10 +18,7 @@ const ItemDetailContainer = () => {
     getDoc(itemRef).then((doc)=> {
       const prod = {id: doc.id, ...doc.data()}
       setDetail(prod) 
-      setLoading(false)
-           
-
- 
+      setLoading(false)          
     })
          .catch(err=>console.log("error"))
    }, [itemId])

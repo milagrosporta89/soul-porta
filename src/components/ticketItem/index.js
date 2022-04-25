@@ -1,67 +1,56 @@
-import {  Grid } from '@mui/material'
-import React from 'react'
+import { Divider, Grid } from "@mui/material";
+import React from "react";
 import "./styles.scss";
-import CartItem from '../CartItem';
+import CartItem from "../CartItem";
+/* const buyDetail=  */
 
-const TicketItem = ({buyId, buyDetail}) => {
-  
+const TicketItem = ({ buyId, buyDetail }) => {
   return (
     <>
-    <Grid
-      container
-      className="cartItem"
-      display="row"
-      xs={12}
-      justifyContent="space-between"
-      alignItems={"center"}
-    >
-      <Grid item xs={2}>
-        <img src={img}></img>
-      </Grid>
-      <Grid item xs={2}>
-        <p>{name}</p>
-      </Grid>
       <Grid
         container
         item
-        xs={4}
-        direction="row"
-        justifyContent={"center"}
-        width={"100%"}
-        alignSelf={"center"}
+        className="cartItem"
+        display="row"
+        xs={12}
+        justifyContent="center"
+        alignItems="center"
+        style={{padding:"1em"}}
       >
-        <ItemCount  stock={Number(stock)}
-                  counter={count}
-                  setCounter={setCount}
-                 ></ItemCount>
-      </Grid>
-      <Grid
-       container
-       item
-       xs={2}
-       direction="row"
-       justifyContent={"center"}
-       width={"100%"}
-       alignSelf={"center"}>
-        <Link to={`/item/${id}`}>Ver detalle</Link>
-      </Grid>
-      <Grid
-        container
-        item
-        xs={2}
-        direction={"row"}
-        justifyContent="flex-end"
-        alignSelf={"center"}
-      >
-        <p>$ {price}</p>
-        <IconButton onClick={() => {removeItem(id)}}>
-          <DeleteIcon></DeleteIcon>
-        </IconButton>
-      </Grid>
-    </Grid>
-      <Divider/>
-      </>
-  );
-}
+        <Grid item xs={1}>
+          <img src={buyDetail?.items?.img}></img>
+        </Grid>
+        <Grid container item xs={3} justifyContent={"center"}>
+          <p>{buyDetail?.items?.name}</p>
+        </Grid>
+        <Grid container item xs={4} justifyContent={"center"}>
+          <p>{buyDetail?.items?.description_short}</p>
+        </Grid>
+        <Grid
+          container
+          item
+          xs={3}
+          direction="row"
+          justifyContent={"center"}
+          alignSelf={"center"}
+        >
+          <p>{buyDetail?.items?.counter}</p>
+        </Grid>
 
-export default TicketItem
+        <Grid
+          container
+          item
+          xs={1}
+          direction={"row"}
+          justifyContent="center"
+          alignSelf={"center"}
+        >
+          <p>$ {buyDetail?.items?.price}</p>
+        </Grid>
+      </Grid>
+      <Divider />
+    </>
+  );
+};
+
+export default TicketItem;

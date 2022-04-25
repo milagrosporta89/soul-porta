@@ -1,0 +1,36 @@
+.cartResume {
+  background-color: #fafafa;
+  border: 1px solid #cccccc;
+  height: 30vh;
+  padding: 1em;
+  max-width: inherit;
+}
+
+.cartResume .title {
+  margin-top: 1em;
+  margin-bottom: 1em;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  justify-items: center;
+}
+
+.cartResume .title h2 {
+  font-size: 16px;
+}
+
+.buttonBuy button {
+  background-color: #4f704f;
+  margin-top: 0.5em;
+  border: none;
+  width: 29vw;
+  height: 5em;
+  cursor: pointer;
+  color: white;
+}
+
+.buttonBuy button h2 {
+  font-size: 18px;
+  color: white;
+}
+/*# sourceMappingURL=styles.css.map */
