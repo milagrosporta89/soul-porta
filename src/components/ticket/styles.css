@@ -1,13 +1,16 @@
 .ticket {
-  border: 1px solid #afafaf;
   padding: 1em;
   width: 70%;
   margin-top: 2em;
-  height: 60vh;
+  height: auto;
 }
 
 .ticket h1 {
   color: black;
+}
+
+.ticket h2 {
+  font-weight: lighter;
 }
 
 .ticket h4 {
@@ -20,6 +23,7 @@
   margin-top: 1em;
   height: 3em;
   font-size: 14px;
+  width: 360px;
 }
 
 .ticket .login-input {
@@ -27,8 +31,8 @@
 }
 
 .ticket p {
-  font-weight: bold;
+  font-weight: lighter;
   margin: 7px;
-  font-size: 14px;
+  font-size: 15px;
 }
 /*# sourceMappingURL=styles.css.map */

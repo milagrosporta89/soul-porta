@@ -45,7 +45,7 @@ const TicketItem = ({ buyId, buyDetail }) => {
           justifyContent="center"
           alignSelf={"center"}
         >
-          <p>$ {buyDetail?.items?.price}</p>
+          <p>$ {buyDetail?.items?.price * buyDetail?.items?.counter}</p>
         </Grid>
       </Grid>
       <Divider />
