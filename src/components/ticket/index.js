@@ -10,15 +10,15 @@ const Ticket = ({ buyId, buyDetail }) => {
   return (
     <Grid container item alignItems={"center"} justifyContent={"center"}>
       <Grid className="ticket">
-        <h4> Estimad@ {buyDetail?.buyer?.name}, </h4>
+        <h4> Estimad@ <mark>{buyDetail?.buyer?.name}</mark>, </h4>
         <br></br>
         <h4>
           {" "}
-          Acabamos de enviarte un mail a {buyDetail?.buyer?.email} con el
+          Acabamos de enviarte un mail a <mark>{buyDetail?.buyer?.email}</mark> con el
           detalle de la compra{" "}
         </h4>
         <br></br>
-        <h4>Podes rastrear tu orden con el siguiente numero: {buyId}</h4>
+        <h4>Podes rastrear tu orden con el siguiente numero: <mark>{buyId}</mark> </h4>
         <br></br>
         <Grid>
           <Grid
@@ -64,11 +64,11 @@ const Ticket = ({ buyId, buyDetail }) => {
               item
               xs={11}
               justifyContent={"flex-end"}
-              style={{ paddingRight: "10%" }}
+              style={{ paddingRight: "9%" }}
             >
               <p>TOTAL</p>
             </Grid>
-            <p>{buyDetail?.total}</p>
+            <p>$ {buyDetail?.total}</p>
           </Grid>
         </Grid>
       <Grid container item alignItems="center" direction ="column" marginTop={"2em"}>

@@ -11,4 +11,9 @@
   color: #414141;
   margin-top: 1em;
 }
+
+.cart-list .emptyCart {
+  width: 100%;
+  min-height: 30vh;
+}
 /*# sourceMappingURL=styles.css.map */
