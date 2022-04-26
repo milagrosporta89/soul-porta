@@ -10,7 +10,9 @@
     h2{
         font-weight: lighter;
     }
-
+    span{
+        font-weight: bold;
+    }
 
     h4{
         margin-bottom:2px;
@@ -22,6 +24,10 @@
         height: 3em;
         font-size: 14px;
         width:360px
+    }
+    mark{
+        background-color: white;
+        font-weight: bold;
     }
     .login-input{
         background-color: white;

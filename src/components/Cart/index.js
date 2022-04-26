@@ -21,7 +21,7 @@ const Cart = () => {
   const { cart, cartQuantity, totalCart } = useContext(CartContext);
 
   const handleBuy = async (e) => {
-    e.preventDefault()
+    e.preventDefault();
     const batch = writeBatch(db);
     const productsRef = collection(db, "products");
     const ordersRef = collection(db, "orders");
@@ -42,75 +42,84 @@ const Cart = () => {
         outOfStock.push(doc.data());
       }
     });
-    
+
     //console.log(products.docs.map(doc=>doc.data()))//para poder leer el objeto que viene de la peticion//
     console.log("!--------!");
   };
-  
-  
 
-  if (cart.length === 0) {
+  /*   if (cart.length === 0) {
     //early return por si el carrito esta vacio
     return <Navigate to="/"></Navigate>;
-  }
+  } */
 
   return (
-    <Container alignContent="center" className="cart-list">
+    <Container container item alignItems="flex-start" className="cart-list">
+      { cartQuantity() !=0 ? (
       <Grid marginTop={"2em"}>
         <h2>Tu Carrito</h2>
       </Grid>
 
-      <Grid container item>
+
+      ) : <br></br>
+
+      }
+
+      <Grid container item alignItems={"flex-start"}>
         <Grid container item={true} xs={8} direction={"row"}>
           {cartQuantity() > 0 ? (
-            <Grid>
+            <Grid container item direction="row" alignItems={"flex-start"}>
               <Grid
                 container
-                item={true}
-                direction="row"
+                item
                 justifyContent="space-around"
                 xs={12}
+                height={"2.5em"}
               >
-                <Grid item={true} xs={4}>
+                <Grid container item={true} xs={4}>
                   <h4>Producto</h4>
                 </Grid>
-                <Grid item={true} xs={5}>
+                <Grid container item={true} xs={5}>
                   <h4>Cantidad</h4>
                 </Grid>
-                <Grid item={true} xs={1}>
+                <Grid container item={true} xs={1}>
                   <h4>Precio</h4>
                 </Grid>
               </Grid>
-              <Divider />
-
+              <Divider orientation="horizontal" style={{ width: "100%" }} />
               <Grid
                 container
-                item={true}
+                item
+                justifyContent="center"
+                alignItems="flex-start"
                 xs={12}
-                direction={"column"}
-                marginTop="2em"
+                marginTop={"1.5em"}
               >
-                <Grid
-                  container
-                  item
-                  justifyContent="center"
-                  alignContent="center"
-                >
-                  {cart.map((item) => (
-                    <CartItem
-                      name={item.name}
-                      img={item.img}
-                      price={item.price}
-                      counter={item.counter}
-                      stock={item.stock}
-                      id={item.id}
-                    ></CartItem>
-                  ))}
-                </Grid>
+                {cart.map((item) => (
+                  <CartItem
+                    name={item.name}
+                    img={item.img}
+                    price={item.price}
+                    counter={item.counter}
+                    stock={item.stock}
+                    id={item.id}
+                  ></CartItem>
+                ))}
               </Grid>
             </Grid>
           ) : (
-            <h2>Tu Carrito esta vacio</h2>
+            <Grid
+              container
+              item
+              direction="row"
+              justifyContent="center"
+              alignItems="center"
+              className="emptyCart"
+           
+            >
+       
+                <h2>Tu Carrito esta vacio</h2>
+        
+            </Grid>
           )}
         </Grid>
 

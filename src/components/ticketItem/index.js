@@ -2,9 +2,9 @@ import { Divider, Grid } from "@mui/material";
 import React from "react";
 import "./styles.scss";
 import CartItem from "../CartItem";
-/* const buyDetail=  */
+/* const ticketDetail=  */
 
-const TicketItem = ({ buyId, buyDetail }) => {
+const TicketItem = ({ buyId, ticketDetail }) => {
   return (
     <>
       <Grid
@@ -18,13 +18,13 @@ const TicketItem = ({ buyId, buyDetail }) => {
         style={{padding:"1em"}}
       >
         <Grid item xs={1}>
-          <img src={buyDetail?.items?.img}></img>
+          <img src={ticketDetail?.img}></img>
         </Grid>
         <Grid container item xs={3} justifyContent={"center"}>
-          <p>{buyDetail?.items?.name}</p>
+          <p>{ticketDetail?.name}</p>
         </Grid>
         <Grid container item xs={4} justifyContent={"center"}>
-          <p>{buyDetail?.items?.description_short}</p>
+          <p>{ticketDetail?.description_short}</p>
         </Grid>
         <Grid
           container
@@ -34,7 +34,7 @@ const TicketItem = ({ buyId, buyDetail }) => {
           justifyContent={"center"}
           alignSelf={"center"}
         >
-          <p>{buyDetail?.items?.counter}</p>
+          <p>{ticketDetail?.counter}</p>
         </Grid>
 
         <Grid
@@ -45,7 +45,7 @@ const TicketItem = ({ buyId, buyDetail }) => {
           justifyContent="center"
           alignSelf={"center"}
         >
-          <p>$ {buyDetail?.items?.price * buyDetail?.items?.counter}</p>
+          <p>$ {ticketDetail?.price* ticketDetail?.counter}</p>
         </Grid>
       </Grid>
       <Divider />
