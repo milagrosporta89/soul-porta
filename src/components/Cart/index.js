@@ -4,7 +4,7 @@ import { CartContext } from "../../context/CartContext";
 import CartItem from "../CartItem";
 import CartResume from "../CartResume";
 import "./styles.scss";
-import { Navigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import Ticket from "../ticket";
 import {
   writeBatch,
@@ -16,15 +16,17 @@ import {
   documentId,
 } from "firebase/firestore";
 import { db } from "../../firebase/config";
+import ModalNoStock from "../modalNoStock";
 
 const Cart = () => {
+  const navigate= useNavigate()
   const { cart, cartQuantity, totalCart } = useContext(CartContext);
+  const [noStock, setNoStock] =useState([])
+  const [modalOpen, setModalOpen] =useState(false)
 
   const handleBuy = async (e) => {
     e.preventDefault();
-    const batch = writeBatch(db);
     const productsRef = collection(db, "products");
-    const ordersRef = collection(db, "orders");
     const q = query(
       productsRef,
       where(
@@ -35,22 +37,40 @@ const Cart = () => {
     );
     const products = await getDocs(q);
     const outOfStock = [];
-
+   
     products.docs.forEach((doc) => {
       const itemInCart = cart.find((item) => item.id === doc.id);
+
       if (doc.data().stock < itemInCart.counter) {
         outOfStock.push(doc.data());
+        const data=doc.data()
+
+     
       }
+    
     });
+    setNoStock(outOfStock)
+    if (outOfStock != 0){
+      setModalOpen(true)
 
-    //console.log(products.docs.map(doc=>doc.data()))//para poder leer el objeto que viene de la peticion//
-    console.log("!--------!");
+    } else{
+      navigate("/checkout")    
+    }    
+    
+    console.log (noStock)
+    console.log ("no Stock de cart")
+    console.log(products.docs.map(doc=>doc.data()))//para poder leer el objeto que viene de la peticion//
+    
   };
-
+  
+  const handleClose = ()=> {
+    setModalOpen(false)
+  }
   /*   if (cart.length === 0) {
     //early return por si el carrito esta vacio
     return <Navigate to="/"></Navigate>;
   } */
+
 
   return (
     <Container container item alignItems="flex-start" className="cart-list">
@@ -130,6 +150,7 @@ const Cart = () => {
           ></CartResume>
         </Grid>
       </Grid>
+     <ModalNoStock open={modalOpen} close={handleClose} outOfStock={noStock}></ModalNoStock>
     </Container>
   );
 };

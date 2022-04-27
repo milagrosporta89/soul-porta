@@ -1,5 +1,6 @@
+import { DisabledByDefaultTwoTone } from "@mui/icons-material";
 import { Button, Grid } from "@mui/material";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./styles.scss";
 
 const ItemCount = ({
@@ -9,7 +10,7 @@ const ItemCount = ({
   setCounter,
   display,
 }) => {
- 
+  const [disabled, setDisabled] = useState(true)
   const handleAdd = () => {
     if (counter < stock) {
       setCounter(counter + 1);
@@ -20,6 +21,19 @@ const ItemCount = ({
       setCounter(counter -1);
     }
   };
+  const handleAddToCart = ()=> {
+    if (stock > 0){
+      setDisabled(false)
+    }else{
+      setDisabled(true)
+    }
+  }
+
+useEffect(() => {
+  handleAddToCart()
+
+ 
+}, [])
 
   return (
     <Grid className="item">
@@ -39,7 +53,7 @@ const ItemCount = ({
         </Grid>
       </Grid>
       {display && (
-        <Button  variant="contained" className="btn-add" onClick={onAdd}>
+        <Button  variant="contained" className="btn-add" disabled={disabled} onClick={onAdd}>
           Agregar al carrito
         </Button>
       )}

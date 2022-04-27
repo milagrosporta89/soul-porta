@@ -6,13 +6,14 @@ import { CartContext } from "../../context/CartContext";
 import { db } from "../../firebase/config";
 import "./styles.scss";
 import { useNavigate } from 'react-router-dom';
+import ModalNoStock from "../modalNoStock";
 
 const CartResume = ({ total , functionClick}) => {
 
   const {cart, totalCart, emptyCart } = useContext( CartContext )
   const navigate = useNavigate()
   
-
+/* 
   const handleBuy = async (e) => {
     e.preventDefault()
     const outOfStock = []
@@ -34,13 +35,17 @@ const CartResume = ({ total , functionClick}) => {
       }
     });
     if (outOfStock.length===0){
+  
       navigate("/checkout")
     }else{
-      navigate("/")//hacer un alerta que diga que item no esta en stock 
-    }
+      console.log(outOfStock) 
+      alert("no hay stock de un item ")
+
+//navigate("/")//hacer un alerta que diga que item no esta en stock 
+    } */
     //console.log(products.docs.map(doc=>doc.data()))//para poder leer el objeto que viene de la peticion//
 
-  };
+  //};
   
 
   return (
@@ -124,7 +129,7 @@ const CartResume = ({ total , functionClick}) => {
       >
        
 
-          <button onClick={(e) => handleBuy(e)}>
+          <button onClick={(e) => functionClick(e)}>
             <h2>FINALIZAR COMPRA </h2>
           </button>        
   
