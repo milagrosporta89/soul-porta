@@ -17,9 +17,11 @@ import FooterLower from "./components/footerLower";
 import Login from "./components/login";
 import Register from "./components/register";
 import RegisterNoAuth from "./components/register/registerNoAuth";
+import { AuthProvider } from "./context/AuthContext";
 
 function App() {
   return (
+    <AuthProvider>
     <CartProvider>
       <RootContainer>
         <BrowserRouter>
@@ -45,6 +47,7 @@ function App() {
       </RootContainer>
       <FooterLower />
     </CartProvider>
+    </AuthProvider>
   );
 }
 

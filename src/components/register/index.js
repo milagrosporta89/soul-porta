@@ -2,9 +2,46 @@ import { Grid, TextField } from '@mui/material'
 import React from 'react'
 import ButtonAdd from '../buttonAdd'
 import "./styles.scss";
+import { useAuth } from '../../context/AuthContext';
+import Input from "../input";
+import useForm from "../../hooks/useForm";
 
 const Register = () => {
+  const { signUp, logIn, currentUser }=useAuth()
+
+  const { values, handleInputChange, errors, setErrors } = useForm({
+    email: "",
+    password: "",
+    repPassword:""
+    
+    
+  });
+
+  const validation = () => {
+    let temp = {};
+    temp.email = /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/.test(
+      values.email
+    )
+      ? ""
+      : "Formato mail aaaa@bbb.ccc";
+    temp.password = /^[0-9]{10,12}$/i.test(values.password)
+      ? ""
+      : "El numero debe tener entre 10 y 12 caracteres";
+
+    setErrors({ ...temp });
+    return Object.values(temp).every((x) => x == ""); //chequea si todos los valores del objetos son un string vacio
+  };
+
+  const handleSubmit = async () =>{
+    try{
+
+    }catch (error){
+
+    }
+  }
+
   return (
+    <form onSubmit={handleSubmit}>
     <Grid container justifyContent="center" alignItems="center">
       <Grid
         container
@@ -18,7 +55,7 @@ const Register = () => {
         <Grid container item>
           <h4>REGISTRATE CON TU EMAIL </h4>
    
-          <TextField
+          <Input
             id="outlined-basic"
             name="email"
             variant="outlined"
@@ -30,7 +67,7 @@ const Register = () => {
         </Grid>
         <Grid container item  style={{marginTop:"10px"}}>
           <h4>ELIJE TU CONTRASEÑA</h4>
-          <TextField className="login-input"
+          <Input className="login-input"
             id="outlined-basic"
             name="password"
             variant="outlined"
@@ -45,9 +82,9 @@ const Register = () => {
         </Grid>
         <Grid container item  style={{marginTop:"10px"}}>
           <h4>CONFIRMA TU CONTRASEÑA</h4>
-          <TextField className="login-input"
+          <Input className="login-input"
             id="outlined-basic"
-            name="password"
+            name="repPassword"
             variant="outlined"
             type={"password"}
             placeholder="Ingresa tu contraseña"
@@ -59,11 +96,12 @@ const Register = () => {
 
         </Grid>
         <Grid container item alignItems={"center"} justifyContent="center">
-          <ButtonAdd name="CREAR CUENTA" className="login-btn"></ButtonAdd>
+          <ButtonAdd name="CREAR CUENTA" className="login-btn" ></ButtonAdd>
      
         </Grid>
       </Grid>
     </Grid>
+    </form>
   )
 }
 

@@ -1,8 +1,8 @@
-import { Email, TempleBuddhist } from "@mui/icons-material";
+
 import { Divider, Grid, TextField } from "@mui/material";
 import React, { useContext, useState } from "react";
 import { CartContext } from "../../context/CartContext";
-import ButtonAdd from "../buttonAdd";
+
 import "./styles.scss";
 import {
   collection,
