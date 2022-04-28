@@ -5,6 +5,7 @@ import "./styles.scss";
 import { useAuth } from '../../context/AuthContext';
 import Input from "../input";
 import useForm from "../../hooks/useForm";
+import ButtonLoading from '../buttonLoading';
 
 const Register = () => {
   const { signUp, logIn, currentUser }=useAuth()
@@ -12,9 +13,7 @@ const Register = () => {
   const { values, handleInputChange, errors, setErrors } = useForm({
     email: "",
     password: "",
-    repPassword:""
-    
-    
+    repPassword:""    
   });
 
   const validation = () => {
@@ -24,20 +23,34 @@ const Register = () => {
     )
       ? ""
       : "Formato mail aaaa@bbb.ccc";
-    temp.password = /^[0-9]{10,12}$/i.test(values.password)
+      temp.password = /^(?=.*\d).{8,}$/.test(values.password)
       ? ""
-      : "El numero debe tener entre 10 y 12 caracteres";
+      : "La contraseña debe terner al menos 8 caracteres";
+      temp.repPassword = (values.password === values.repPassword)
+      ? ""
+      : "Las contraseñas no coinciden"
 
     setErrors({ ...temp });
     return Object.values(temp).every((x) => x == ""); //chequea si todos los valores del objetos son un string vacio
   };
-
-  const handleSubmit = async () =>{
-    try{
-
-    }catch (error){
-
+console.log (errors)
+console.log(values)
+  const handleSubmit = async (e) =>{
+    e.preventDefault()
+    if (validation()){
+      try{
+        await signUp (values.email, values.password)    
+      }catch (error){
+        let temp={}
+        if (error.code ==="auth/email-already-in-use"){
+          temp.email="Ya hay un usuario registrado con ese Email"
+          setErrors({...temp})
+        }
+        console.log(error.code)
+  
+      }
     }
+
   }
 
   return (
@@ -62,6 +75,8 @@ const Register = () => {
             placeholder="Ingresa tu Email"
             fullWidth={true}
             type="email"
+            onChange={(e) => {handleInputChange(e)}}
+            error={errors.email}
            
           />
         </Grid>
@@ -74,7 +89,8 @@ const Register = () => {
             type={"password"}
             placeholder="Ingresa tu contraseña"
             fullWidth={true}
-          
+            onChange={(e) => {handleInputChange(e)}}
+            error={errors.password}
             size="normal"
            
           />
@@ -89,6 +105,8 @@ const Register = () => {
             type={"password"}
             placeholder="Ingresa tu contraseña"
             fullWidth={true}
+            onChange={(e) => {handleInputChange(e)}}
+            error={errors.repPassword}
           
             size="normal"
            
@@ -96,7 +114,7 @@ const Register = () => {
 
         </Grid>
         <Grid container item alignItems={"center"} justifyContent="center">
-          <ButtonAdd name="CREAR CUENTA" className="login-btn" ></ButtonAdd>
+          <ButtonLoading  > REGISTRARME </ButtonLoading>
      
         </Grid>
       </Grid>
