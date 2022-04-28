@@ -37,10 +37,7 @@ const handleUpload =  ()=> {
             <Link to ="/" ><img src={logo}></img></Link>
           </Grid>
           <Grid item lg={2} alignItems="center">
-            {
-              currentUser ? <LogOut/> : "register"
-            }
-            
+          <LogOut></LogOut>
             
           </Grid>
           <Grid item lg={1} align="center">

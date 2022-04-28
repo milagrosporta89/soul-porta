@@ -1,31 +1,48 @@
-import { Grid } from '@mui/material'
-import React from 'react'
-import { Link } from 'react-router-dom'
-import LogoutIcon from '@mui/icons-material/Logout';
+import { Grid } from "@mui/material";
+import React, { useEffect } from "react";
+import { Link } from "react-router-dom";
+import LogoutIcon from "@mui/icons-material/Logout";
 import "./styles.scss";
-import { useAuth } from '../../context/AuthContext';
+import { useAuth } from "../../context/AuthContext";
 
 const LogOut = () => {
-    const { logout }=useAuth()
+  const { logout, currentUser, userLoad} = useAuth(); 
+  console.log(currentUser)
+  console.log("current user de logout")
 
+  if (!currentUser){
+    return (
+      <Grid container item spacing={1} className="logOut">
+      <Grid item >
+        <Link to="/register">
+          <p>Registrarse</p>
+        </Link>
+      </Grid>
+      <Grid item>
+      <Link to="/login">
+          <p>| Iniciar Sesion</p>
+        </Link>
+      </Grid>
+    </Grid>
+    )
+  }
   return (
-
-      <>
-      <Grid container spacing={2} className="logOut" >
+    <>
+        <Grid container item spacing={1} className="logOut">
         <Grid item>
-            <Link to="/profile"><div>Mi Perfil</div></Link>
+          <Link to="/profile">
+            <p>Mi Perfil</p>
+          </Link>
         </Grid>
         <Grid item>
-
-        <button onClick={()=> logout()}><LogoutIcon></LogoutIcon></button>
+          <button onClick={() => logout()}>
+            <LogoutIcon></LogoutIcon>
+          </button>
         </Grid>
-        
-        <br></br>
-       
-
       </Grid>
       </>
-  )
-}
+      )
+  
+};
 
-export default LogOut
+export default LogOut;

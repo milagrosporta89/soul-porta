@@ -1,5 +1,5 @@
 import { createContext, useContext, useEffect, useState } from "react";
-import { createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from "firebase/auth";
+import { createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signOut } from "firebase/auth";
 import { auth } from "../firebase/config"
 
 const AuthContext = createContext()
@@ -7,7 +7,8 @@ const AuthContext = createContext()
 export const useAuth = () => useContext(AuthContext) // para poder llamar directamente a useAuth
 
 export const AuthProvider = (props) => {
-    const [currentUser, setCurrentUser] = useState({})
+    const [currentUser, setCurrentUser] = useState()
+    const [userLoad, setUserLoad] = useState(true)
 
 
     const signUp = (email, password) => {
@@ -16,20 +17,24 @@ export const AuthProvider = (props) => {
     const logIn = async (email, password) => {
         
         const userCredentials= await signInWithEmailAndPassword(auth, email, password) //funcionalidad de firebase
-        setCurrentUser(userCredentials)
+        setUserLoad(false)
     } 
     
     const logout = () => signOut(auth); //funcionalidad de firebase
 
     
     useEffect (()=> {
-        auth.onAuthStateChanged((user)=> {
-            setCurrentUser(user)
-        })
         
+        const unsubuscribe = onAuthStateChanged(auth, (user) => {
+           
+            setCurrentUser(user);
+            setUserLoad(false)
+           
+          });
+          return () => unsubuscribe();
     },[])
     
-    const value={signUp, logIn, logout, currentUser}
+    const value={signUp, logIn, logout, currentUser, userLoad}
     return (
         <AuthContext.Provider value={value}>
             {props.children}

@@ -19,6 +19,7 @@ import Register from "./components/register";
 import RegisterNoAuth from "./components/register/registerNoAuth";
 import { AuthProvider } from "./context/AuthContext";
 import Profile from "./components/profile";
+import ProtectedRoute from "./Routes/ProtectedRoute";
 
 function App() {
   return (
@@ -39,7 +40,7 @@ function App() {
             <Route path="/politica" element={<Politica />} />
             <Route path="/contacto" element={<Contacto />} />
             <Route path="/cart" element={<Cart />} />
-            <Route path="/profile" element={<Profile />} />
+            <Route path="/profile" element={<ProtectedRoute><Profile /></ProtectedRoute>} />
           </Routes>
           <Footer />
         </BrowserRouter>
