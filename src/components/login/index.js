@@ -12,7 +12,7 @@ import ButtonLoading from "../buttonLoading";
 const Login = () => {
   const navigate = useNavigate()
   const { signUp, logIn, currentUser }=useAuth()
-  const [ authError, setAuthError] =useState("")
+
 
   const {handleInputChange, errors, setErrors, values} = useForm({
     email:"",

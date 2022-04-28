@@ -11,7 +11,7 @@ export const AuthProvider = (props) => {
 
 
     const signUp = (email, password) => {
-        return createUserWithEmailAndPassword( email, password) //funcionalidad de firebase
+        return createUserWithEmailAndPassword( auth, email, password) //funcionalidad de firebase
     }
     const logIn = (email, password) =>  signInWithEmailAndPassword(auth, email, password) //funcionalidad de firebase
     
