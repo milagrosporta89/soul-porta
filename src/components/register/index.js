@@ -6,8 +6,10 @@ import { useAuth } from '../../context/AuthContext';
 import Input from "../input";
 import useForm from "../../hooks/useForm";
 import ButtonLoading from '../buttonLoading';
+import { useNavigate } from 'react-router-dom';
 
 const Register = () => {
+  const navigate = useNavigate ()
   const { signUp, logIn, currentUser }=useAuth()
 
   const { values, handleInputChange, errors, setErrors } = useForm({
@@ -33,13 +35,13 @@ const Register = () => {
     setErrors({ ...temp });
     return Object.values(temp).every((x) => x == ""); //chequea si todos los valores del objetos son un string vacio
   };
-console.log (errors)
-console.log(values)
+
   const handleSubmit = async (e) =>{
     e.preventDefault()
     if (validation()){
       try{
-        await signUp (values.email, values.password)    
+        await signUp (values.email, values.password) 
+        navigate("/");
       }catch (error){
         let temp={}
         if (error.code ==="auth/email-already-in-use"){

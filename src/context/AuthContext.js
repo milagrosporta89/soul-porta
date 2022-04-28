@@ -1,5 +1,5 @@
 import { createContext, useContext, useEffect, useState } from "react";
-import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from "firebase/auth";
 import { auth } from "../firebase/config"
 
 const AuthContext = createContext()
@@ -13,9 +13,13 @@ export const AuthProvider = (props) => {
     const signUp = (email, password) => {
         return createUserWithEmailAndPassword( auth, email, password) //funcionalidad de firebase
     }
-    const logIn = (email, password) =>  signInWithEmailAndPassword(auth, email, password) //funcionalidad de firebase
+    const logIn = async (email, password) => {
+        
+        const userCredentials= await signInWithEmailAndPassword(auth, email, password) //funcionalidad de firebase
+        setCurrentUser(userCredentials)
+    } 
     
-    const logout= ()=> auth.logout() //funcionalidad de firebase
+    const logout = () => signOut(auth); //funcionalidad de firebase
 
     
     useEffect (()=> {

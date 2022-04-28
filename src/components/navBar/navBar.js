@@ -12,18 +12,18 @@ import { db } from "../../firebase/config";
 import { collection, addDoc } from "firebase/firestore";
 import { stock } from "../../data/stock";
 import { fileUpload } from "../../firebase/fileUpload";
-
+import { useAuth } from "../../context/AuthContext";
+import LogOut from "../logOut";
 
 const Navbar = () => {
-  console.log (stock)
+  const { currentUser }=useAuth()
+  console.log(currentUser)
+
 const handleUpload =  ()=> {
   stock.forEach ( async e => {
     // const imgURL = await fileUpload(e.img)
-
    await addDoc(collection(db,"products"),e)
-  })
-
-  
+  })  
 }
 
   return (
@@ -37,7 +37,10 @@ const handleUpload =  ()=> {
             <Link to ="/" ><img src={logo}></img></Link>
           </Grid>
           <Grid item lg={2} alignItems="center">
-            <Link to="/login"><p>iniciar sesion|crear cuenta</p></Link>
+            {
+              currentUser ? <LogOut/> : "register"
+            }
+            
             
           </Grid>
           <Grid item lg={1} align="center">
