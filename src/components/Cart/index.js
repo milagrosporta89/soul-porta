@@ -57,9 +57,9 @@ const Cart = () => {
       navigate("/checkout")    
     }    
     
-    console.log (noStock)
-    console.log ("no Stock de cart")
-    console.log(products.docs.map(doc=>doc.data()))//para poder leer el objeto que viene de la peticion//
+    //onsole.log (noStock)
+    //console.log ("no Stock de cart")
+    //console.log(products.docs.map(doc=>doc.data()))//para poder leer el objeto que viene de la peticion//
     
   };
   

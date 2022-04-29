@@ -65,7 +65,7 @@ const Register = () => {
         alignItems="center"
         direction="column"
         width={"350px"}
-        height={"45vh"}
+        height={"28em"}
         >
         <Grid container item>
           <h4>REGISTRATE CON TU EMAIL </h4>

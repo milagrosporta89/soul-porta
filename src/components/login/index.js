@@ -8,10 +8,13 @@ import Input from "../input";
 import { useAuth } from "../../context/AuthContext";
 import { ConstructionOutlined, ErrorSharp } from "@mui/icons-material";
 import ButtonLoading from "../buttonLoading";
+import ModalResetPass from "../modalResetPass";
 
 const Login = () => {
   const navigate = useNavigate()
   const { signUp, logIn, currentUser }=useAuth()
+  const [modalOpen, setModalOpen] =useState(false)
+
 
 
   const {handleInputChange, errors, setErrors, values} = useForm({
@@ -57,6 +60,14 @@ const Login = () => {
       }
     }
   }
+  const handleClose = ()=> {
+    setModalOpen(false)
+  }
+  const handleOpen = (e) =>{
+    e.preventDefault()
+    setModalOpen(true)
+
+  }
 
 
   return (
@@ -69,7 +80,7 @@ const Login = () => {
         alignItems="center"
         direction="column"
         width={"350px"}
-        height={"45vh"}
+        height={"27em"}
         
       >
         <Grid container item>
@@ -102,9 +113,9 @@ const Login = () => {
             error={errors.password}
            
           />
-          <Link to="/">
-          <h5>¿Olvidaste tu Contraseña?</h5>
-          </Link>
+         
+          <button className="link" onClick={(e)=> handleOpen(e)}><h5>¿Olvidaste tu Contraseña?</h5></button>
+       
         </Grid>
         <Grid container item alignItems={"center"} justifyContent="center">
           <ButtonLoading  >INICIAR SESION</ButtonLoading>
@@ -112,6 +123,7 @@ const Login = () => {
         </Grid>
       </Grid>
     </Grid>
+    <ModalResetPass open={modalOpen} close={handleClose}></ModalResetPass>
     </form>
   );
 };
