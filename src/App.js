@@ -17,19 +17,20 @@ import FooterLower from "./components/footerLower";
 import Login from "./components/login";
 import Register from "./components/register";
 import RegisterNoAuth from "./components/register/registerNoAuth";
+import { AuthProvider } from "./context/AuthContext";
+import Profile from "./components/profile";
+import ProtectedRoute from "./Routes/ProtectedRoute";
 
 function App() {
   return (
+    <AuthProvider>
     <CartProvider>
       <RootContainer>
         <BrowserRouter>
           <NavBar />
           <Routes>
             <Route path="/" element={<ItemListContainer />} />
-            <Route
-              path="/category/:categoryId"
-              element={<ProductsContainer />}
-            />
+            <Route path="/category/:categoryId" element={<ProductsContainer />}/>
             <Route path="/item/:itemId" element={<ItemDetailContainer />} />
             <Route path="/nosotras" element={<Nosotras />} />
             <Route path="/productos" element={<ProductsContainer />} />
@@ -39,12 +40,14 @@ function App() {
             <Route path="/politica" element={<Politica />} />
             <Route path="/contacto" element={<Contacto />} />
             <Route path="/cart" element={<Cart />} />
+            <Route path="/profile" element={<ProtectedRoute><Profile /></ProtectedRoute>} />
           </Routes>
           <Footer />
         </BrowserRouter>
       </RootContainer>
       <FooterLower />
     </CartProvider>
+    </AuthProvider>
   );
 }
 

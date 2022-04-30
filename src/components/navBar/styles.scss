@@ -1,8 +1,11 @@
+@import "../../styles/breakpoints";
+
 .navBar-item-container{
     display:flex;
     width: 100%;
     justify-content: center;
     align-items: center;
+ 
 }
 .top-container{
     
@@ -14,6 +17,40 @@
     margin-top:1em;
     img{
         width:15em;
-        height:auto
+        height:auto;
+        @include lg{
+            width:5em;
+            height:auto
+    
+        }
+    }
+    .divider{
+        margin:none;
+        display:none;
+        color:red;
+        @include lg{
+            display:block
+    
+        }
+
+    
+    }
+    .responsive{
+        display:block;
+        @include md{
+            
+            background-color: red;
+           
+        }
+    }
+}
+
+
+.menu-icon{
+    display:none;
+
+    @include lg{
+        display:block
+
     }
 }

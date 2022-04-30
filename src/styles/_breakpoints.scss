@@ -1,0 +1,66 @@
+$breackpoints: (
+    "xs": 0,
+    "sm": 480px,
+    "md": 720px,
+    "lg": 960px,
+    "xl": 1200px,
+);
+
+
+  
+  @mixin sm {
+    @media (max-width: 480px )  {
+      @content;
+    }
+  }
+  
+  @mixin md {
+    @media (max-width: 720px) {
+      @content;
+    }
+  }
+  
+  @mixin lg {
+    @media (max-width:960px) {
+      @content;
+    }
+  }
+  
+  @mixin xl {
+    @media (max-width:1200px) {
+      @content;
+    }
+  }
+
+/* @mixin xs {
+    @media (min-width: 0) {
+      @content;
+    }
+  }
+  
+  @mixin sm {
+    @media (min-width: 480px ) and (max-width:719px) {
+      @content;
+    }
+  }
+  
+  @mixin md {
+    @media (min-width: 720px) {
+      @content;
+    }
+  }
+  
+  @mixin lg {
+    @media (min-width:960px) {
+      @content;
+    }
+  }
+  
+  @mixin xl {
+    @media (min-width:1200px) {
+      @content;
+    }
+  } */
+  
+ 
+ 

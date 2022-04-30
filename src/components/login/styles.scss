@@ -14,13 +14,28 @@
         margin-top:2em; 
         height: 3em;
         font-size: 14px;
+        
     }
     .login-input{
         background-color: white;
     }
     p{
         font-weight: bold;
+        margin: 2px;
+        font-size: 11px;
+    }
+    h5{
+        font-weight: bold;
         margin: 7px;
         font-size: 14px;
     }
+    .link{
+     
+            padding:0;
+            margin:0;
+            background-color: white;
+            border: none;
+            cursor:pointer
+    }
+
 }

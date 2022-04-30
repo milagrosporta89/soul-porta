@@ -18,13 +18,10 @@ const ModalNoStock = ({open , close, outOfStock }) => {
       const handleClose = () => {
         setOpenModal(false);
       };
-    console.log (outOfStock)
-    console.log ("soy outOfStock del modal  ")
+
       return (
         <div>
-   {/*        <Button variant="outlined" onClick={handleClickOpen}>
-            Open alert dialog
-          </Button> */}
+
           <Dialog
             open={open}
             onClose={handleClose}
