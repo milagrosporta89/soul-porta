@@ -15,8 +15,6 @@ const NavBarList = () => {
         <Link to ="/nosotras"> NOSOTRAS</Link>
         <Link to ="/politica"> POLITICA DE DEVOLUCION</Link>
         <Link to="contacto"> CONTACTO</Link>
- 
-
 
     </div>
   );

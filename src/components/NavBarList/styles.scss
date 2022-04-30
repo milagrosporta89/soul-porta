@@ -1,9 +1,13 @@
+@import "../../styles/breakpoints";
+
 .navItems {
-    display: flex;
+    display: flex !important;
+  
     flex-direction: row;
     justify-content: space-between;
     width: 100%;
     border-bottom: 1px solid grey;
+    
 
     a{
         text-decoration: none;
@@ -12,4 +16,11 @@
         line-height: 2;
             
     }
+
+    @include lg {
+      
+       display:none !important ;
+    }
+
 }
+

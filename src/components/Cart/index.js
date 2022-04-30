@@ -56,9 +56,6 @@ const Cart = () => {
     } else{
       navigate("/checkout")    
     }    
-    
-    //onsole.log (noStock)
-    //console.log ("no Stock de cart")
     //console.log(products.docs.map(doc=>doc.data()))//para poder leer el objeto que viene de la peticion//
     
   };
@@ -66,25 +63,17 @@ const Cart = () => {
   const handleClose = ()=> {
     setModalOpen(false)
   }
-  /*   if (cart.length === 0) {
-    //early return por si el carrito esta vacio
-    return <Navigate to="/"></Navigate>;
-  } */
-
 
   return (
-    <Container container item alignItems="flex-start" className="cart-list">
+    <Container container item alignItems="flex-start" className="cart-list" >
       { cartQuantity() !=0 ? (
       <Grid marginTop={"2em"}>
         <h2>Tu Carrito</h2>
       </Grid>
-
-
       ) : <br></br>
-
       }
 
-      <Grid container item alignItems={"flex-start"}>
+      <Grid container item alignItems={"flex-start"} direction={{xs:"column",xl:"row"}}>
         <Grid container item={true} xs={8} direction={"row"}>
           {cartQuantity() > 0 ? (
             <Grid container item direction="row" alignItems={"flex-start"}>
