@@ -73,7 +73,7 @@ const Cart = () => {
       ) : <br></br>
       }
 
-      <Grid container item alignItems={"flex-start"} direction={{xs:"column",xl:"row"}}>
+      <Grid container item alignItems={"flex-start"} direction={{xs:"column",md:"row"}}>
         <Grid container item={true} xs={8} direction={"row"}>
           {cartQuantity() > 0 ? (
             <Grid container item direction="row" alignItems={"flex-start"}>

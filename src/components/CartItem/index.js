@@ -39,7 +39,8 @@ const CartItem = ({name, img, price, id,counter, stock }) => {
       <Grid
         container
         item
-        xs={4}
+        xs={3}
+        md={4}
         direction="row"
         justifyContent={"center"}
         width={"100%"}
@@ -58,19 +59,20 @@ const CartItem = ({name, img, price, id,counter, stock }) => {
        justifyContent={"center"}
        width={"100%"}
        alignSelf={"center"}>
-        <Link to={`/item/${id}`}>Ver detalle</Link>
+        <Link to={`/item/${id}`}><p>Ver mas</p></Link>
       </Grid>
       <Grid
         container
         item
-        xs={2}
+        xs={3}
+        md={2}
         direction={"row"}
         justifyContent="flex-end"
         alignSelf={"center"}
       >
         <p>$ {price}</p>
-        <IconButton onClick={() => {removeItem(id)}}>
-          <DeleteIcon></DeleteIcon>
+        <IconButton onClick={() => {removeItem(id)}} className="icon">
+          <DeleteIcon className="icon"></DeleteIcon>
         </IconButton>
       </Grid>
     </Grid>
