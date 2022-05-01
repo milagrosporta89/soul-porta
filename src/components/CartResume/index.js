@@ -1,52 +1,13 @@
 import { Divider, Grid } from "@mui/material";
-import { collection, documentId, getDocs, query, where } from "firebase/firestore";
 import React, { useContext, useState } from "react";
-import { Link } from "react-router-dom";
 import { CartContext } from "../../context/CartContext";
-import { db } from "../../firebase/config";
 import "./styles.scss";
 import { useNavigate } from 'react-router-dom';
-import ModalNoStock from "../modalNoStock";
 
 const CartResume = ({ total , functionClick}) => {
 
   const {cart, totalCart, emptyCart } = useContext( CartContext )
   const navigate = useNavigate()
-  
-/* 
-  const handleBuy = async (e) => {
-    e.preventDefault()
-    const outOfStock = []
-
-    const productsRef = collection(db, "products");
-    const q = query(
-      productsRef,
-      where(
-        documentId(),
-        "in",
-        cart.map((e) => e.id)
-      )
-    );
-    const products = await getDocs(q);
-    products.docs.forEach((doc) => {
-      const itemInCart = cart.find((item) => item.id === doc.id);
-      if (doc.data().stock < itemInCart.counter) {
-        outOfStock.push(doc.data());
-      }
-    });
-    if (outOfStock.length===0){
-  
-      navigate("/checkout")
-    }else{
-      console.log(outOfStock) 
-      alert("no hay stock de un item ")
-
-//navigate("/")//hacer un alerta que diga que item no esta en stock 
-    } */
-    //console.log(products.docs.map(doc=>doc.data()))//para poder leer el objeto que viene de la peticion//
-
-  //};
-  
 
   return (
     <Grid
@@ -54,7 +15,7 @@ const CartResume = ({ total , functionClick}) => {
       xs={12}
       justifyContent="flex-start"
       direction="column"
-      marginLeft="2em"
+      marginLeft={{md:"2em", sm:"0"}}
     >
       <Grid
         container
@@ -96,7 +57,7 @@ const CartResume = ({ total , functionClick}) => {
             alignItems="center"
           >
             <p>Envio</p>
-            <p>$1500</p>
+            <p>RETIRO POR LOCAL</p>
           </Grid>
         </Grid>
         <Divider />
@@ -116,7 +77,7 @@ const CartResume = ({ total , functionClick}) => {
             alignItems="flex-end"
           >
             <p>TOTAL</p>
-            <p>$1500</p>
+            <p> ${total}</p>
           </Grid>
         </Grid>
       </Grid>
