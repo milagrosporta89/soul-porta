@@ -42,9 +42,9 @@ function App() {
             <Route path="/cart" element={<Cart />} />
             <Route path="/profile" element={<ProtectedRoute><Profile /></ProtectedRoute>} />
           </Routes>
-          <Footer />
         </BrowserRouter>
       </RootContainer>
+          <Footer />
       <FooterLower />
     </CartProvider>
     </AuthProvider>
