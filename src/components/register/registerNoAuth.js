@@ -26,20 +26,7 @@ const RegisterNoAuth = () => {
   const [orderId, setOrderId] = useState();
   const [btnLoad, setBtnLoad] = useState(false);
   const [buy, setBuy] = useState({
-  /*   buyer: {
-      email: "porta@maill.com",
-      name: "milagros",
-      phone: "3515224114",
-    },
-    items: {
-      name: "CUARZO CRISTAL",
-      description_short: "Amuleto Sanador",
-      price: "2000",
-      img: "/img/cuarzo cristal.jpg",
-      counter: 1,
-    },
-    length: 1,
-    total: 2000, */
+
   });
   // estado para guardar los valores de los inputs
   const { values, handleInputChange, errors, setErrors } = useForm({
@@ -64,7 +51,7 @@ const RegisterNoAuth = () => {
     return Object.values(temp).every((x) => x == ""); //chequea si todos los valores del objetos son un string vacio
   };
 
-  //aarmado del arreglo para mandar a firebase
+  //armado del arreglo para mandar a firebase
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -123,7 +110,7 @@ const RegisterNoAuth = () => {
           alignItems="center"
           direction="column"
           width={"360px"}
-          height={"50vh"}
+          height={"28em"}
         >
           <Grid container item>
             <Grid
@@ -180,14 +167,7 @@ const RegisterNoAuth = () => {
               onChange={(e) => handleInputChange(e)}
             />
           </Grid>
-
           <Grid container item alignItems={"center"} justifyContent="center">
-            {/*             <ButtonAdd
-              name="FINALIZAR COMPRA"z
-              className="login-btn"
-              type="submit"
-            ></ButtonAdd>   */}
-
             <ButtonLoading isLoading={btnLoad}>FINALIZAR COMPRA </ButtonLoading>
           </Grid>
         </Grid>

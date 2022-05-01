@@ -8,13 +8,7 @@ import { Link } from "react-router-dom";
 
 
 const Item = ({ name, description_short, price, img, id}) => {
-/*   const products = {
-    name: "CUARZO",
-    description: "Amuleto Protector",
-    price: "$2000",
-    img: "../../img/cuarzo.jpg",
-  };
- */
+
   return (
     <>
       <Grid container item lg={3} md={4} sm={6} xs={12} className="card" spacing={0} alignItems={"self-start"}   direction="column ">
@@ -32,9 +26,7 @@ const Item = ({ name, description_short, price, img, id}) => {
           <Link to={`/item/${id}`} ><ButtonAdd name="AGREGAR AL CARRITO"></ButtonAdd></Link>
 
         </Grid>
-     {/*    <CardContent sx={{ p:0, '&:last-child': { pb: 0 } }}>
-     
-        </CardContent> */}
+ 
       </Grid>
     </>
   );
