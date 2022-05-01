@@ -7,10 +7,17 @@ import CreditCardIcon from '@mui/icons-material/CreditCard';
 
 const Footer = () => {
   return (
-    <Grid container   justifyContent="center">
 
-   
+
+  
+<div className="container-footer">
+
+
+
     <Grid container  className="footer" >
+
+
+
       <Grid container item direction="row" xs={4} alignItems="center" justifyContent="space-around">
         <WhatsAppIcon className="wappIcon" />
         <Grid>
@@ -32,8 +39,13 @@ const Footer = () => {
           <h4>Muchos tips y las ultimas novedades</h4>
         </Grid>
       </Grid>
-    </Grid>
-    </Grid>
+      </Grid>
+      </div>
+    
+
+    
+
+
   );
 };
 
