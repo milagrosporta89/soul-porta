@@ -1,6 +1,12 @@
 @import '../../styles/main.scss';
+@import '../../styles/breakpoints';
+
 
 .item-detail{
+
+    justify-content: center;
+    margin-top: 3em;
+    align-items: center;
     img{
         height: 400px;;
         width: auto;
@@ -20,8 +26,7 @@
         font-weight: normal;
         font-size: 16px;
     }
-    justify-content: center;
-    margin-top: 3em;
+  
 
     .grid-location{
         margin-right: 0;
@@ -40,6 +45,17 @@
     .btn-add:hover{
         background-color: $color-positive-hover;
       }
+    .item-content{
+        width:28vw;
+        @include md{
+            width: 400px
+
+        }
+        @include lg{
+            width: 100%
+
+        }
+    }
 
    
 }

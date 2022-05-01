@@ -31,7 +31,12 @@ $breackpoints: (
       @content;
     }
   }
-
+  @mixin xxl {
+    @media (max-width:2000px) {
+      @content;
+    }
+  }
+  
 /* @mixin xs {
     @media (min-width: 0) {
       @content;

@@ -35,7 +35,7 @@ const ItemDetail = ({
   return (
     
     <Container>
-      <Grid container item className="item-detail" margin={"2em"}>
+      <Grid container item className="item-detail" marginTop={"2em"} direction={{xs:"column" , md:"row"}}>
         <Grid
           item
           alignContent={"center"}
@@ -48,7 +48,9 @@ const ItemDetail = ({
           direction="column"
           justifyContent="space-evenly"
           alignItems="flex-end"
-          style={{ width: "18vw"}}
+          className="item-content"
+         /*  style={{ width: "18vw"}} */
+         padding={"2em"}
         >
           <Grid item justifyContent="space-evenly"> 
             <h2>{name}</h2>
