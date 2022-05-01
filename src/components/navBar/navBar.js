@@ -41,7 +41,7 @@ const handleOpenMenu = () => {
           <Grid item className="menu-icon" >
             <button onClick={(e)=>{handleOpenMenu()}}><MenuIcon></MenuIcon> </button>
           </Grid>
-          <Grid item xs={2}>
+          <Grid item xs={4} lg={2}>
             <SearchBar></SearchBar>
           </Grid>
           <Grid item xs={3} lg={5} align="center">
