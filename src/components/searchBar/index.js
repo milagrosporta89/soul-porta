@@ -10,7 +10,7 @@ const SearchBar = () => {
   
         backgroundColor: "white",
         '&:hover': {
-          backgroundColor: "blue",
+          backgroundColor: "white",
         },
         borderBottom:"1px solid grey",
         marginRight: 2,

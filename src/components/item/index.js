@@ -19,13 +19,15 @@ const Item = ({ name, description_short, price, img, id}) => {
     <>
       <Grid container item lg={3} md={4} sm={6} xs={12} className="card" spacing={0} alignItems={"self-start"}   direction="column ">
         <Grid item className="card-shadow" >
+
           <Grid container item >
-          <img src= {img}></img> 
+          <Link to={`/item/${id}`} > <img src= {img}></img></Link>
+         
 
           </Grid>
           <div>{name}</div>
           <div>{description_short}</div>
-          <div>{price}</div>
+          <div>$ {price}</div>
 
           <Link to={`/item/${id}`} ><ButtonAdd name="AGREGAR AL CARRITO"></ButtonAdd></Link>
 

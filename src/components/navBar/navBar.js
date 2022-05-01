@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 import "./styles.scss";
 import logo from "../../img/logo-soul.JPG";
@@ -15,7 +15,9 @@ import { fileUpload } from "../../firebase/fileUpload";
 import { useAuth } from "../../context/AuthContext";
 import LogOut from "../logOut";
 import MenuIcon from '@mui/icons-material/Menu';
+import SideBar from "../sidebar";
 const Navbar = () => {
+  const [handleMenu, setHandleMenu] =useState(false)
   const { currentUser }=useAuth()
   console.log(currentUser)
 
@@ -25,13 +27,19 @@ const handleUpload =  ()=> {
    await addDoc(collection(db,"products"),e)
   })  
 }
+const handleOpenMenu = () => {
+  setHandleMenu(!handleMenu)
+
+}
+
 
   return (
+    <>
     <div>
       <div className="top-container">
         <Grid container justifyContent="space-between" alignItems="center">
           <Grid item className="menu-icon" >
-            <MenuIcon></MenuIcon>
+            <button onClick={(e)=>{handleOpenMenu()}}><MenuIcon></MenuIcon> </button>
           </Grid>
           <Grid item xs={2}>
             <SearchBar></SearchBar>
@@ -55,6 +63,13 @@ const handleUpload =  ()=> {
         <NavBarList></NavBarList>
       </div>
     </div>
+    { handleMenu &&  <SideBar close={handleOpenMenu}></SideBar>
+
+    }
+   
+    </>
+
+
   );
 };
 export default Navbar;

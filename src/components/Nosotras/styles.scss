@@ -1,0 +1,14 @@
+@import "../../styles/breakpoints";
+
+
+.nosotras{
+    padding: 2em;
+    img{
+        width:300px;
+        height: auto;
+        margin-left: 6em;
+        @include sm{
+            margin-left: 0;
+        }
+    }
+}
