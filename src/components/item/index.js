@@ -17,10 +17,12 @@ const Item = ({ name, description_short, price, img, id}) => {
  */
   return (
     <>
-      <Grid container item lg={3} md={4} sm={6} xs={12} className="card" spacing={0} sx={{ }} >
-        <Grid item width={"content"} style={{marginTop:"2em"}}>
-
+      <Grid container item lg={3} md={4} sm={6} xs={12} className="card" spacing={0} alignItems={"self-start"}   direction="column ">
+        <Grid item className="card-shadow" >
+          <Grid container item >
           <img src= {img}></img> 
+
+          </Grid>
           <div>{name}</div>
           <div>{description_short}</div>
           <div>{price}</div>

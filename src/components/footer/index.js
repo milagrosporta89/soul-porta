@@ -14,7 +14,7 @@ const Footer = () => {
 
 
 
-    <Grid container  className="footer" >
+    <Grid container  className="footer" direction={{sm:"column",md:"row"}} >
 
 
 
