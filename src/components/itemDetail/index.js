@@ -39,7 +39,8 @@ const ItemDetail = ({
         <Grid
           item
           alignContent={"center"}
-          style={{ marginRight: "3em", padding: "1em" }}
+          style={{padding: "1em" }}
+          className="img-detail"
         >
           <img src={img}></img>
         </Grid>

@@ -1,8 +1,12 @@
+import { Grid } from '@mui/material'
 import React from 'react'
 
 const Politica = () => {
   return (
-    <div>Politica</div>
+    <Grid>
+      <div>Politica</div>
+
+    </Grid>
   )
 }
 

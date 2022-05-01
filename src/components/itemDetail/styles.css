@@ -40,6 +40,15 @@
 .item-detail img {
   height: 400px;
   width: auto;
+  margin-right: 3em;
+}
+
+@media (max-width: 480px) {
+  .item-detail img {
+    width: 280px;
+    height: auto;
+    margin-right: 0;
+  }
 }
 
 .item-detail h1 {
